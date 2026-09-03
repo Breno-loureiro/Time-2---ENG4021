@@ -1,2 +1,30 @@
-Na primeira pergunta sobre: Você compra artigos esportivos (camisas, chuteiras, acessórios)? Com que frequência?
-Os resultados obtidos foram 36,4% 1x ano, 36,4% 2-4x ano, 27,3% mensal
+1-Você compra artigos esportivos (camisas, chuteiras, acessórios)? Com que frequência?
+Os resultados obtidos foram 36,4% 1x ano, 36,4% 2-4x ano e 27,3% mensal
+2-Qual tipo de item você mais compra?
+Os resultados obtidos foram 81,8% camisa de futebol e 18,2% chuteira
+3-Você torce por qual time?
+Os resultados obtidos foram 63,6% Flamengo e 36,4% Fluminense
+4-Onde você costuma comprar atualmente?
+Os resultados obtidos foram 54,5% lojas físicas e 45,5% lojas online
+5-Como você decide onde comprar?
+Os resultados obtidos foram 54,5% qualidade do produto, 27,3% confiança na loja e 18,2% preço
+6-Já teve alguma experiência ruim comprando artigo esportivo online? O que aconteceu?
+Os resultados obtidos foram 65% não e 35% teve algum problema como tamanho errado e produto errado
+7-O que mais te deixa inseguro(a) na hora de comprar?
+Os resultados obtidos foram 72,7% tamanho errado, 9,1% qualidade duvidosa, 9,1% medo de produto falsificado e 9,1% golpe
+8-Se existisse um site que reunisse avaliações de lojas (atendimento, prazo, confiabilidade) e dos produtos (marca, modelo, ano, qualidade), você usaria?
+Os resultados obtidos foram 90,9% sim e 9,1% talvez
+9-O que seria mais útil pra você: comparar preços entre lojas, ver avaliação de outros usuários, ou os dois?
+Os resultados obtidos foram 63,6% ambos, 18,2% avaliação de outros usuários e 18,2% comparação de preços
+10-Você confiaria mais numa loja com boas avaliações de outros compradores?
+Os resultados obtidos foram 100% sim
+11-Você gostaria de poder buscar por time, jogador, ano do modelo ou campeonato específico?
+Os resultados obtidos foram 100% sim
+12-Gostaria de um sistema de "selo de confiança" pra lojas bem avaliadas?
+Os resultados obtidos foram 81,8% sim e 18,2% talvez
+13-Usaria esse site mais pelo celular ou computador?
+Os resultados obtidos foram 63,6% computador e 36,4% celular
+14-O que não pode faltar nesse site pra você usar de verdade?
+As respostas foram camisas retro, foto, avaliações filtradas de cada comprador, confiança,
+detalhes do produto, grande quantidade de avaliações e comparação de preços, nota boa no reclame aqui,
+interface fácil de navegar e melhor especificação do produto.
