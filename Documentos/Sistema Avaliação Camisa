@@ -1,0 +1,77 @@
+Critérios e pontuação:
+
+1. Tecido — máximo 25 pontos
+
+Sem qualquer sinal de desgaste: 0 desconto
+Pequeno desgaste, praticamente imperceptível: -5
+Desgaste leve e visível: -10
+Desgaste moderado: -15
+Desgaste acentuado: -20
+Tecido muito danificado: -25
+
+2. Manchas — máximo 20 pontos
+
+Não possui manchas: 0
+Pequena mancha, pouco visível: -5
+Mancha visível: -10
+Várias manchas: -15
+Mancha grande ou muito evidente: -20
+
+3. Escudo — máximo 15 pontos
+
+Perfeito: 0
+Pequeno desgaste: -3
+Desgaste visível: -7
+Parcialmente danificado: -11
+Muito danificado: -15
+
+4. Patrocínios e estampas — máximo 15 pontos
+
+Perfeitos: 0
+Pequeno desgaste: -3
+Desgaste visível: -7
+Parte da estampa descascando: -11
+Estampa muito danificada: -15
+Não possui patrocinadores/estampas: 0
+
+5. Nome e número — máximo 10 pontos
+
+Não possui: 0
+Perfeitos: 0
+Pequeno desgaste: -2
+Desgaste moderado: -5
+Desgaste acentuado: -8
+Parcialmente descascado ou solto: -10
+
+6. Furos, rasgos e fios — máximo 10 pontos
+
+Não possui: 0
+Pequenos fios puxados: -3
+Vários fios puxados: -5
+Pequeno furo ou dano: -7
+Rasgo ou dano significativo: -10
+
+7. Desbotamento — máximo 5 pontos
+
+Não apresenta: 0
+Muito leve: -1
+Visível: -3
+Acentuado: -5
+
+8. Outros danos
+
+Não: 0
+Sim: -5
+Cálculo
+
+A lógica seria:
+
+Pontuação final = 100 - soma de todos os descontos
+
+Depois transformar a pontuação em estrelas:
+
+90–100 pontos → 5 estrelas
+75–89 pontos → 4 estrelas
+55–74 pontos → 3 estrelas
+30–54 pontos → 2 estrelas
+0–29 pontos → 1 estrela
