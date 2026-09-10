@@ -1,0 +1,36 @@
+Implementações do CAMISA 12 vs. concorrentes
+
+- Filtro de busca por time, ano e competição
+Exemplo: catálogos da Centauro, Netshoes e Fut Retro — todas filtram por marca, tamanho e gênero (Netshoes também por "Time/Atleta", Fut Retro só organiza por região/país no menu), mas nenhuma tem filtro por ano/temporada ou por competição.
+Implementação: na barra lateral de filtros, o usuário marca um checkbox de década (ex: "anos 90") ou seleciona uma competição num menu suspenso (ex: "Copa do Mundo"), e a lista de produtos recarrega automaticamente mostrando só os itens daquele período/competição.
+Por que é melhor: é um buraco confirmado em toda a concorrência - o usuário precisa adivinhar o nome exato do produto na busca de texto livre.
+
+- Ficha de procedência estruturada, em vez de selo/texto genérico
+Exemplo: Atrox Casual Club e Retrô Mania usam frases institucionais ("originais, raras e verificadas") repetidas em qualquer produto; a Centauro usa uma tag fixa "PRODUTO LICENCIADO" em alguns itens, mas sem detalhar procedência por peça.
+Implementação: ao abrir a página do produto, o usuário clica numa aba "Procedência", na qual os fornecedores escrevem sobre o produto anunciado. O sistema exibe campos daquele item específico (fornecedor, tipo de licença, material, ano de fabricação) e uma galeria com no mínimo duas fotos reais, ampliáveis com clique.
+Por que é melhor: vai além de uma tag genérica, mostrando dado estruturado e checável por item.
+
+- Tabela de medidas por modelo específico 
+Exemplo: conferindo várias páginas de produto da Retrô Club e da Fut Retro, ambas JÁ mostram uma "Tabela de Medidas" (largura x altura por tamanho); só que a mesma tabela se repete idêntica em produtos completamente diferentes (ex: uma camisa retrô de 1981 e uma camisa atual de 2024/25 mostram exatamente as mesmas medidas de P a GG). A Centauro faz o mesmo: tabela igual pra linha inteira de produto.
+Implementação: ao clicar em "Ver tabela de medidas" ao lado do seletor de tamanho, o sistema abre um painel com as medidas de peito, comprimento e manga específicas daquele modelo (cadastradas individualmente por produto), não uma tabela padrão copiada pra todo o catálogo.
+Por que é melhor: o problema não é a ausência da tabela — é que ela hoje é genérica, especialmente crítico em retrô, onde o corte muda muito entre décadas e fabricantes.
+
+- Conteúdo editorial/histórico na ficha do produto
+Exemplo: as páginas de produto da Fut Retro e da Retrô Club — ambas mostram só composição, tabela de medidas e formas de pagamento, sem nenhum texto sobre o contexto da camisa. A Centauro, por outro lado, já faz esse tipo de conteúdo, mas só em lançamentos novos e licenciados (ex: a camisa do Corinthians 25 remete ao mundial de 2000).
+Implementação: abaixo da descrição comercial, o sistema exibe automaticamente uma seção "Contexto histórico" com um texto curto sobre aquela camisa específica, sempre visível, sem precisar de clique adicional.
+Por que é melhor: aplica a mesma boa prática que a Centauro já usa pros lançamentos, só que estendida pro catálogo retrô, que é o produto central da loja e hoje não tem esse conteúdo em nenhum concorrente pesquisado.
+
+- Personalização (nome/número) direto na página do produto, com pré-visualização
+Exemplo: Autêntica Retrô exige contato manual externo; Netshoes já tem ferramenta de personalização com prévia visual, e a Centauro mostra a opção "Personalize" já na listagem.
+Implementação: na página do produto, o usuário digita nome e número em dois campos; a cada caractere digitado, o sistema atualiza em tempo real uma prévia visual mostrando o nome/número sobreposto à imagem da camisa.
+Por que é melhor: o objetivo é igualar o padrão que Netshoes/Centauro já estabeleceram, fechando a diferença em relação aos concorrentes diretos de nicho.
+
+- Fluxo de solicitação de troca dentro da conta do usuário
+Exemplo: Na central de atendimento da Centauro — o processo de troca pelo site exige imprimir uma cópia da nota fiscal para colocar dentro da embalagem e outra para colar do lado de fora, levar o pacote fisicamente aos Correios, e esperar até 6 dias úteis de análise depois que o produto chega ao centro de distribuição.
+Implementação: dentro de "Meus Pedidos", o usuário clica em "Solicitar troca", preenche o motivo num formulário curto e envia; o sistema cria a solicitação com status "Aberta" e atualiza automaticamente (Aberta → Em análise → Concluída) na mesma tela.
+Por que é melhor: mesmo a maior rede de artigos esportivos da América Latina ainda depende de nota fiscal impressa e etapas manuais — um fluxo mais simples é um diferencial real e realista de implementar num projeto sem essa complexidade toda.
+
+- Lista de desejos com tamanho específico e alerta de reposição
+Exemplo: Concorrentes como Centauro, Netshoes e lojas de nicho que usam recursos de "avise-me quando chegar" (ex: Fut Retro) favoritam ou notificam por produto, não por tamanho, então o cliente pode ser avisado da reposição de um tamanho que não serve nele.
+Implementação: ao clicar no ícone de favorito, o sistema abre um seletor pedindo o tamanho desejado; o item entra na lista vinculado àquele tamanho, e quando o estoque for atualizado para disponível, o sistema marca o item como "Disponível" na lista do usuário.
+Por que é melhor: favoritar sem garantir que o tamanho certo esteja disponível é um problema real que ainda existe.
