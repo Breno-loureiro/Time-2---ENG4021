@@ -1,6 +1,7 @@
 Esse é um arquivo markdown
 
 
+```mermaid
 classDiagram
     class Usuario {
         id
@@ -78,3 +79,4 @@ classDiagram
     Produto "1" <-- "*" Avaliacao : recebe
 
     Carrinho "*"--> "*" Produto : contém
+```
