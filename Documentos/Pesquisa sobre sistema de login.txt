@@ -1,0 +1,26 @@
+## Pesquisa sobre sistema de login
+
+Desenvolver um sistema de login do zero é uma tarefa complexa. Como nosso site envolverá um banco de dados com
+endereços, números de cartão de crédito e número de CPF, é de vital importância que nosso sistema de login seja
+o mais seguro possível a ataques de hackers e afins.
+
+
+Isso envolve criar e implementar um sistema de criptografia robusto capaz de converter a senha digitada do usuário em
+uma chave particular, que em conjunto com a chave pública garantirá 2 qualidades:
+
+	1. Apenas o usuário saberá sua senha.
+	2. O SITE NÃO TEM A SENHA ARMAZENADA EM LUGAR ALGUM (Importante!)
+
+Esse problema já traumatizou a mente de programadores muito mais experientes que nós, e, à medida que os métodos de ataque
+ficam mais complexos, também terá que ficar o sistema de login.
+
+Tendo em vista a complexidade da tarefa, resolvemos utilizar, inicialmente, dois sitemas de login desenvolvidos por empresas
+notáveis e confiávies da internet. São estes.
+
+Sistema da Google, que permite o usuário a logar no site com uma conta do Gmail.
+https://developers.google.com/identity/sign-in/web/sign-in
+
+
+Sistema da Meta, que permite o usuário logar no site com uma conta do facebook ou Instagram.
+https://developers.facebook.com/documentation/facebook-login/web/login-button/
+
