@@ -1,0 +1,4 @@
+Para testar essa alteração tem que trocar a configuração na área de opções de pré-visualização
+para visualização para celulares
+Link do Figma:
+https://www.figma.com/make/iLrotWCERcVh2ebW9PvYsO/Site-Camisa-12?t=N15CEc4LTe4FA2qR-1
