@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camisas de Futebol | CAMISA 12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="futebol.html" class="logo">
+        <div class="logo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linejoin="round"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3c0 2-1.8 3-4 3S8 5 8 3z"/></svg></div>
+        <div>
+          <span class="logo__nome">CAMISA 12</span>
+          <span class="logo__slogan">A VOZ DA TORCIDA</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="menu">
+        <li><a href="#">Início</a></li>
+        <li><a href="futebol.html" class="ativo">Camisas de Futebol</a></li>
+        <li><a href="nba.html">NBA</a></li>
+        <li><a href="nfl.html">NFL</a></li>
+        <li><a href="#">Chuteiras</a></li>
+        <li><a href="#">Acessórios</a></li>
+        <li><a href="#">Lojas</a></li>
+        </ul>
+      </nav>
+
+      <form class="busca" action="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input type="search" placeholder="Buscar produtos, times, marcas...">
+      </form>
+
+      <div class="acoes">
+        <a href="#" class="acoes__entrar">Entrar</a>
+        <a href="#" class="btn">Criar conta</a>
+        <a href="#" class="carrinho" aria-label="Carrinho">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="carrinho__qtd">3</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero hero--futebol">
+    <div class="container hero__inner">
+      <div class="hero__texto">
+        <span class="selo">Coleção Mundial 2026</span>
+        <h1 class="hero__titulo">O manto do seu<br>time está aqui</h1>
+        <p class="hero__descricao">Compare modelos oficiais, versões torcedor e camisas retrô das melhores lojas do Brasil e do mundo.</p>
+        <a href="#catalogo" class="btn">Ver todos os mantos</a>
+      </div>
+      <!-- Card lateral: destaque da semana -->
+      <aside class="destaque">
+        <div class="destaque__caixa">
+          <div class="destaque__topo">⚡ DESTAQUE DA SEMANA</div>
+          <div class="destaque__corpo">
+            <div class="destaque__foto"><span>6 fotos reais</span></div>
+            <div class="destaque__info">
+              <h3>Fluminense I 2026 • Titular</h3>
+              <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.9 (412 avaliações)</div>
+              <p>Conservação 5/5 · Nova com etiqueta</p>
+              <p>Tamanho M · Versão torcedor</p>
+              <p class="destaque__preco-antigo">R$ 349,90</p>
+              <p class="destaque__preco">R$ 279,90 <span class="desconto">-20%</span></p>
+            </div>
+          </div>
+          <a href="#" class="btn">Ver oferta</a>
+        </div>
+
+        <ul class="destaque__lista">
+          <li>Melhor oferta</li>
+          <li>Melhor preço</li>
+          <li>Garanta a sua antes que acabe →</li>
+        </ul>
+
+        <div class="vendedor">
+          <div class="vendedor__avatar">TS</div>
+          <div>
+            <p class="vendedor__nome">Vendido por Tricolor Store RJ</p>
+            <p class="vendedor__dados"><b>4.9 ★</b> · 1.284 vendas · Envia em até 24h</p>
+          </div>
+          <span class="verificado">Verificado</span>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ===== CATÁLOGO ===== -->
+  <main class="catalogo" id="catalogo">
+    <div class="container">
+      <h2 class="catalogo__titulo">Camisas de Futebol</h2>
+      <p class="catalogo__total">60 produtos encontrados</p>
+
+      <!-- Filtros -->
+      <form class="filtros" action="#">
+        <svg class="filtros__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M7 12h10M10 17h4"/></svg>
+        <label class="filtros__busca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input type="search" placeholder="Buscar...">
+        </label>
+        <select aria-label="Confederação">
+          <option>Confederação</option>
+          <option>CBF</option>
+          <option>UEFA</option>
+          <option>Conmebol</option>
+        </select>
+        <select aria-label="Faixa de preço">
+          <option>Faixa de preço</option>
+          <option>Até R$ 200</option>
+          <option>R$ 200 a R$ 350</option>
+          <option>Acima de R$ 350</option>
+        </select>
+        <div class="filtros__ordenar">
+          Ordenar:
+          <select aria-label="Ordenar">
+            <option>Mais relevantes</option>
+            <option>Menor preço</option>
+            <option>Maior preço</option>
+            <option>Melhor avaliados</option>
+          </select>
+        </div>
+      </form>
+
+      <!-- Grade de produtos -->
+      <section class="produtos">
+        <article class="card">
+          <div class="card__midia midia--campo">
+          <span class="etiqueta">Mais vendida</span>
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Fluminense</span>
+            <h3 class="card__nome">Fluminense I 2026 • Titular</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.8 · 312 av.</div>
+            <p class="card__loja">Ajustar de Centauro</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 349,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--gramado">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Fluminense</span>
+            <h3 class="card__nome">Fluminense II 2026 • Visitante</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.3 · 185 av.</div>
+            <p class="card__loja">Ajustar de Centauro</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 379,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--gramado">
+          <span class="etiqueta">Lançamento</span>
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Fluminense</span>
+            <h3 class="card__nome">Fluminense III 2026 • Terceira</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.5 · 98 av.</div>
+            <p class="card__loja">Ajustar de Nike.com</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 339,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--bolas">
+          <span class="etiqueta">Destaque</span>
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Flamengo</span>
+            <h3 class="card__nome">Flamengo I 2026 • Titular</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.7 · 428 av.</div>
+            <p class="card__loja">Ajustar de Adidas</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 319,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--campo">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Palmeiras</span>
+            <h3 class="card__nome">Palmeiras I 2026 • Titular</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.7 · 312 av.</div>
+            <p class="card__loja">Ajustar de Puma</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 349,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--gramado">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Palmeiras</span>
+            <h3 class="card__nome">Palmeiras II 2026 • Visitante</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.4 · 187 av.</div>
+            <p class="card__loja">Ajustar de Puma</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 329,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--gramado">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Palmeiras</span>
+            <h3 class="card__nome">Palmeiras III 2026 • Terceira</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.1 · 89 av.</div>
+            <p class="card__loja">Ajustar de Netshoes</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 369,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--gramado">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">São Paulo</span>
+            <h3 class="card__nome">São Paulo I 2026 • Titular</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.5 · 254 av.</div>
+            <p class="card__loja">Ajustar de Mercado Livre</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 329,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--campo">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Grêmio</span>
+            <h3 class="card__nome">Grêmio II 2026 • Visitante</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.2 · 114 av.</div>
+            <p class="card__loja">Ajustar de Centauro</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 319,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--gramado">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Internacional</span>
+            <h3 class="card__nome">Internacional I 2026 • Titular</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.3 · 167 av.</div>
+            <p class="card__loja">Ajustar de Adidas</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 329,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--gramado">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Internacional</span>
+            <h3 class="card__nome">Internacional II 2026 • Visitante</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.1 · 88 av.</div>
+            <p class="card__loja">Ajustar de Netshoes</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 309,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--bolas">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Vasco da Gama</span>
+            <h3 class="card__nome">Vasco da Gama I 2026 • Titular</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.5 · 243 av.</div>
+            <p class="card__loja">Ajustar de Kappa</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 329,90</span>
+              <a href="#" class="btn">Ver ofertas</a>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <!-- Paginação -->
+      <nav class="paginacao" aria-label="Paginação">
+        <a href="#" class="desativada" aria-label="Anterior">←</a>
+        <a href="#" class="ativa">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#" aria-label="Próxima">→</a>
+      </nav>
+    </div>
+  </main>
+
+  <!-- ===== RODAPÉ ===== -->
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape__grade">
+        <div>
+          <div class="rodape__logo"><span></span>CAMISA 12</div>
+          <p class="rodape__sobre">O maior portal agregador e comparador de camisas e artigos esportivos do Brasil. Encontre o item certo com segurança e pelo menor preço.</p>
+          <div class="redes">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Sobre</h4>
+          <ul>
+            <li><a href="#">Quem Somos</a></li>
+            <li><a href="#">Como Funciona</a></li>
+            <li><a href="#">Lojas Parceiras</a></li>
+            <li><a href="#">Blog Oficial</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="futebol.html">Camisas Futebol</a></li>
+            <li><a href="nba.html">Camisas NBA</a></li>
+            <li><a href="nfl.html">Camisas NFL</a></li>
+            <li><a href="#">Chuteiras</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Suporte</h4>
+          <ul>
+            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Trocas e Devoluções</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+          </ul>
+        </div>
+
+        <div class="newsletter">
+          <h4>Receba ofertas exclusivas</h4>
+          <p>Alertas de descontos das maiores lojas esportivas do Brasil.</p>
+          <form action="#">
+            <input type="email" placeholder="Seu melhor e-mail...">
+            <button type="submit" class="btn">OK</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="rodape__copy">© 2026 CAMISA 12 · Projeto acadêmico PUC-Rio</p>
+    </div>
+  </footer>
+
+</body>
+</html>
