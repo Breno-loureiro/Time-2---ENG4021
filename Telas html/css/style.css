@@ -1,0 +1,619 @@
+/* 
+   
+   Estilo compartilhado: futebol.html, nba.html, nfl.html
+    */
+
+/* ------- ---------- */
+:root {
+  --verde: #00e676;
+  --verde-escuro: #00c364;
+  --amarelo: #ffd23f;
+  --fundo: #141414;
+  --fundo-header: #0b0b0b;
+  --card: #1a1a1a;
+  --card-2: #222222;
+  --borda: #2b2b2b;
+  --texto: #ffffff;
+  --texto-suave: #a3a3a3;
+  --raio: 12px;
+  --largura: 1240px;
+  --fonte-titulo: "Bebas Neue", "Arial Narrow", sans-serif;
+  --fonte-texto: "Inter", Arial, sans-serif;
+}
+
+/* ---------- Base ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--fundo);
+  color: var(--texto);
+  font-family: var(--fonte-texto);
+  line-height: 1.5;
+}
+
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; }
+img { display: block; max-width: 100%; }
+button, input, select { font: inherit; }
+
+.container {
+  width: 100%;
+  max-width: var(--largura);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--verde);
+  color: #0b0b0b;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+.btn:hover { background: var(--verde-escuro); transform: translateY(-1px); }
+
+/* ==========================================================
+   HEADER
+   ========================================================== */
+.header {
+  background: var(--fundo-header);
+  border-bottom: 1px solid var(--borda);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 84px;
+}
+
+.logo { display: flex; align-items: center; gap: 10px; flex-shrink: 0; }
+
+.logo__icone {
+  width: 50px;
+  height: 50px;
+  background: var(--verde);
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+}
+.logo__icone svg { width: 28px; height: 28px; }
+
+.logo__nome {
+  font-family: var(--fonte-titulo);
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: .5px;
+  white-space: nowrap;
+}
+.logo__slogan {
+  display: block;
+  color: var(--verde);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  margin-top: 4px;
+}
+
+.menu { display: flex; gap: 22px; white-space: nowrap; }
+.menu a { font-weight: 700; font-size: 15px; transition: color .2s; }
+.menu a:hover,
+.menu a.ativo { color: var(--verde); }
+
+.busca {
+  flex: 1;
+  max-width: 350px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #1c1c1c;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  padding: 0 14px;
+  height: 48px;
+}
+.busca svg { width: 18px; height: 18px; color: var(--texto-suave); flex-shrink: 0; }
+.busca input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--texto);
+  font-size: 14px;
+}
+.busca input::placeholder { color: #6b6b6b; }
+
+.acoes { display: flex; align-items: center; gap: 14px; margin-left: auto; }
+.acoes__entrar { font-weight: 700; }
+.acoes .btn { padding: 12px 20px; font-size: 14px; white-space: nowrap; }
+
+.carrinho { position: relative; width: 26px; height: 26px; }
+.carrinho svg { width: 26px; height: 26px; }
+.carrinho__qtd {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--verde);
+  color: #0b0b0b;
+  font-size: 10px;
+  font-weight: 800;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+/* ==========================================================
+   HERO (banner com a frase que muda em cada página)
+   Para usar uma foto: coloque o arquivo na pasta img/ e
+   descomente a linha "url(...)" da página correspondente.
+   ========================================================== */
+.hero {
+  min-height: 512px;
+  display: flex;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.hero--futebol {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,10,.92) 0%, rgba(10,10,10,.55) 55%, rgba(10,10,10,.35) 100%),
+    /* url("../img/hero-futebol.jpg"), */
+    radial-gradient(ellipse at 70% 40%, #4a6b2a 0%, #233a14 45%, #101a0a 100%);
+}
+.hero--nba {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,10,.9) 0%, rgba(10,10,10,.55) 60%, rgba(10,10,10,.4) 100%),
+    /* url("../img/hero-nba.jpg"), */
+    radial-gradient(circle at 25% 85%, #7a3214 0%, #3b1a0d 18%, transparent 32%),
+    radial-gradient(ellipse at 35% 10%, #3a3a3a 0%, #121212 55%, #0a0a0a 100%);
+}
+.hero--nfl {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,10,.88) 0%, rgba(10,10,10,.5) 60%, rgba(10,10,10,.35) 100%),
+    /* url("../img/hero-nfl.jpg"), */
+    radial-gradient(ellipse 22% 30% at 52% 45%, #6b3a1f 0%, #3d2010 70%, transparent 100%),
+    linear-gradient(180deg, #2c4524 0%, #1e3319 50%, #15260f 100%);
+}
+
+.hero__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+.hero__texto { max-width: 600px; }
+
+.selo {
+  display: inline-block;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+  background: rgba(0, 230, 118, .08);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+
+.hero__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(56px, 7vw, 92px);
+  line-height: .9;
+  text-transform: uppercase;
+  margin-bottom: 26px;
+}
+
+.hero__descricao {
+  color: #c9c9c9;
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.hero .btn { padding: 22px 36px; font-size: 18px; }
+
+/* ---------- Card "Destaque da semana" (só no futebol) ---------- */
+.destaque { width: 425px; flex-shrink: 0; }
+
+.destaque__caixa {
+  border: 2px solid var(--amarelo);
+  border-radius: var(--raio);
+  overflow: hidden;
+  background: rgba(15, 15, 15, .92);
+}
+.destaque__topo {
+  background: var(--amarelo);
+  color: #111;
+  font-weight: 800;
+  font-size: 14px;
+  padding: 10px 18px;
+}
+.destaque__corpo { display: flex; gap: 16px; padding: 18px; }
+
+.destaque__foto {
+  width: 126px;
+  height: 150px;
+  border-radius: 8px;
+  flex-shrink: 0;
+  position: relative;
+  background: linear-gradient(160deg, #6f8f5a, #2f4a22 60%, #1d2e15);
+}
+.destaque__foto span {
+  position: absolute;
+  bottom: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  background: #000;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.destaque__info h3 { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.destaque__info p { color: var(--texto-suave); font-size: 13px; }
+.destaque__preco-antigo { text-decoration: line-through; color: #666; font-size: 12px; margin-top: 8px; }
+.destaque__preco {
+  color: var(--verde);
+  font-size: 24px;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.desconto {
+  background: var(--amarelo);
+  color: #111;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+.destaque .btn {
+  display: block;
+  text-align: center;
+  text-transform: none;
+  font-size: 14px;
+  padding: 10px;
+  margin: 0 18px 18px 160px;
+}
+
+.destaque__lista { margin: 18px 0; font-weight: 700; font-size: 15px; }
+.destaque__lista li { display: flex; align-items: center; gap: 10px; padding: 3px 0; }
+.destaque__lista li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--amarelo);
+}
+.destaque__lista li:last-child { color: var(--amarelo); }
+
+.vendedor {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(15, 15, 15, .92);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 14px 16px;
+}
+.vendedor__avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: #7b1e2b;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+.vendedor__nome { font-weight: 700; font-size: 14px; }
+.vendedor__dados { color: var(--texto-suave); font-size: 12px; }
+.vendedor__dados b { color: var(--amarelo); }
+.verificado {
+  margin-left: auto;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
+}
+
+/* ==========================================================
+   CATÁLOGO (igual nas três páginas)
+   ========================================================== */
+.catalogo { padding: 90px 0 60px; }
+
+.catalogo__titulo {
+  font-family: var(--fonte-titulo);
+  font-size: clamp(44px, 5vw, 64px);
+  line-height: 1;
+  text-transform: uppercase;
+}
+.catalogo__total {
+  color: var(--texto-suave);
+  font-size: 18px;
+  margin: 14px 0 36px;
+}
+
+/* ---------- Barra de filtros ---------- */
+.filtros {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #121212;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 20px;
+  margin-bottom: 36px;
+}
+.filtros__icone { width: 22px; height: 22px; color: var(--verde); }
+
+.filtros__busca {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--card-2);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 0 14px;
+  height: 46px;
+  width: 232px;
+}
+.filtros__busca svg { width: 16px; height: 16px; color: var(--texto-suave); }
+.filtros__busca input {
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--texto);
+  width: 100%;
+}
+
+.filtros select {
+  appearance: none;
+  background: var(--card-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0h10L5 6z' fill='%23fff'/%3E%3C/svg%3E") no-repeat right 14px center;
+  color: var(--texto);
+  font-weight: 700;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 0 38px 0 16px;
+  height: 46px;
+  cursor: pointer;
+}
+
+.filtros__ordenar {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--texto-suave);
+}
+
+/* ---------- Grade de produtos ---------- */
+.produtos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s, border-color .2s;
+}
+.card:hover { transform: translateY(-4px); border-color: #3d3d3d; }
+
+/* Área da foto. Para usar foto real, coloque dentro da div:
+   <img src="img/nome-da-foto.jpg" alt="Descrição">            */
+.card__midia {
+  position: relative;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+.card__midia img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Fundos provisórios (enquanto não há fotos) */
+.midia--gramado { background-image: linear-gradient(180deg, #5fae2a 0%, #3e8f1c 55%, #2d6f13 100%); }
+.midia--campo   { background-image: linear-gradient(160deg, #8fa7b8 0%, #5d7a4a 45%, #33521f 100%); }
+.midia--bolas   { background-image: radial-gradient(circle at 60% 65%, #e8a52a 0%, #b5761c 20%, transparent 32%), linear-gradient(180deg, #2f5a2c, #173a18); }
+.midia--quadra  { background-image: radial-gradient(circle at 35% 75%, #b4521f 0%, #6e2e10 14%, transparent 22%), linear-gradient(160deg, #2a2a2a, #0d0d0d); }
+.midia--arena   { background-image: radial-gradient(ellipse at 50% 70%, #d64fa0 0%, #5a1f6e 35%, #160b22 80%); }
+.midia--retro   { background-image: linear-gradient(160deg, #3b5f85 0%, #1e3550 60%, #0f1d2e 100%); }
+.midia--bone    { background-image: linear-gradient(160deg, #f1f1f1 0%, #cfcfcf 60%, #a8a8a8 100%); }
+.midia--oval    { background-image: radial-gradient(ellipse 30% 22% at 50% 50%, #7a4322 0%, #4b2812 80%, transparent 100%), linear-gradient(180deg, #355a2b, #1b3214); }
+.midia--estadio { background-image: linear-gradient(180deg, #1c2b45 0%, #2f4f2a 55%, #1f3a18 100%); }
+.midia--capacete{ background-image: radial-gradient(circle at 50% 55%, #9aa4b5 0%, #4f5868 30%, #1b1f27 70%); }
+
+.etiqueta {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: var(--verde);
+  color: #0b0b0b;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+.card__corpo {
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.card__time {
+  color: #bdbdbd;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.card__nome { font-size: 17px; font-weight: 800; margin: 2px 0 10px; }
+
+.avaliacao { display: flex; align-items: center; gap: 8px; font-size: 13px; color: var(--texto-suave); }
+.estrelas { color: var(--verde); letter-spacing: 2px; font-size: 15px; }
+
+.card__loja { color: var(--texto-suave); font-size: 13px; margin: 12px 0 22px; }
+
+.card__rodape {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card__preco { font-size: 21px; font-weight: 800; }
+.card__rodape .btn { font-size: 12px; padding: 10px 16px; }
+
+/* ---------- Paginação ---------- */
+.paginacao {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+}
+.paginacao a {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  background: #111;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  font-weight: 800;
+  transition: border-color .2s;
+}
+.paginacao a:hover { border-color: var(--verde); }
+.paginacao a.ativa { background: var(--verde); color: #0b0b0b; border-color: var(--verde); }
+.paginacao a.desativada { color: #555; pointer-events: none; }
+
+/* ==========================================================
+   RODAPÉ
+   ========================================================== */
+.rodape {
+  border-top: 1px solid var(--borda);
+  background: #121212;
+  padding: 80px 0 60px;
+}
+.rodape__grade {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr 1.4fr;
+  gap: 40px;
+}
+.rodape__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--fonte-titulo);
+  font-size: 40px;
+  line-height: 1;
+  white-space: nowrap;
+}
+.rodape__logo span {
+  width: 26px;
+  height: 26px;
+  border: 3px solid #fff;
+  display: grid;
+  place-items: center;
+}
+.rodape__logo span::after { content: ""; width: 10px; height: 10px; background: #fff; }
+
+.rodape__sobre { color: var(--texto-suave); margin: 24px 0; font-size: 16px; }
+
+.redes { display: flex; gap: 8px; }
+.redes a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  display: grid;
+  place-items: center;
+  transition: border-color .2s;
+}
+.redes a:hover { border-color: var(--verde); }
+.redes svg { width: 18px; height: 18px; }
+
+.rodape h4 {
+  font-family: var(--fonte-titulo);
+  font-size: 26px;
+  font-weight: 400;
+  margin-bottom: 22px;
+}
+.rodape li { margin-bottom: 14px; }
+.rodape li a { color: var(--texto-suave); transition: color .2s; }
+.rodape li a:hover { color: var(--verde); }
+
+.newsletter p { color: var(--texto-suave); margin-bottom: 20px; }
+.newsletter form { display: flex; gap: 10px; }
+.newsletter input {
+  flex: 1;
+  min-width: 0;
+  background: #1c1c1c;
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  color: var(--texto);
+  padding: 0 14px;
+  height: 52px;
+}
+.newsletter .btn { padding: 0 20px; }
+
+.rodape__copy {
+  border-top: 1px solid var(--borda);
+  margin-top: 56px;
+  padding-top: 24px;
+  color: #666;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ==========================================================
+   RESPONSIVO
+   ========================================================== */
+@media (max-width: 1320px) {
+  .menu { display: none; }
+}
+
+@media (max-width: 1180px) {
+  .produtos { grid-template-columns: repeat(3, 1fr); }
+  .rodape__grade { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 960px) {
+  .hero__inner { flex-direction: column; align-items: flex-start; }
+  .destaque { width: 100%; max-width: 440px; }
+  .produtos { grid-template-columns: repeat(2, 1fr); }
+  .filtros__ordenar { margin-left: 0; }
+}
+
+@media (max-width: 640px) {
+  .busca, .acoes__entrar { display: none; }
+  .acoes .btn { padding: 10px 14px; font-size: 12px; }
+  .logo__nome { font-size: 28px; }
+  .produtos { grid-template-columns: 1fr; }
+  .rodape__grade { grid-template-columns: 1fr; }
+  .filtros__busca { width: 100%; }
+  .destaque .btn { margin-left: 18px; }
+}
