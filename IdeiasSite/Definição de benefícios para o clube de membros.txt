@@ -1,0 +1,29 @@
+## Definição de benefícios para o clube de membros
+
+Acesso antecipado à itens recém anunciados:
+	Membros terão acesso à itens novos 1 semana (por exemplo) antes do público geral.
+	Ou seja, caso esteja procurando um item mais cobiçado ou mais raro, o usuário
+	terá mais chances de comprá-lo. Espécie de pré-venda.
+
+2. Frete grátis
+
+3. Sorteio mensal de itens exclusivos:
+	Cada mês sortearemos 1 (ou mais, dependendo da quantidade de membros) itens
+	exclusivamente para os membros, a ser enviado para o ganhador. Como já teremos
+	o endereço de todos na nossa base de dados, o envio será simplificado. 
+	
+	Se fizermos um sorteio por liga, por exemplo, podemos dar ao usuário a opção de
+	escolher qual sorteio gostaria de participar. 
+
+4. Alerta de queda de preço:
+	Caso um revendedor ponha um produto em liquidação que seja parecido com os itens
+	que o usuário tenha demonstrado interesse antes, notificamos o usuário por meio de
+	um email ou SMS, caso prefira.
+	REQUER: método para analisar semelhança entre produtos
+
+5. Fantasy:
+	Criaremos ligas de fantasy (semelhante ao Cartola) que membros poderão participar.
+	Os ganhadores poderão ganhar brindes ou até itens mais raros.
+
+
+Podem ser criados vários tiers de inscrição. Os preços serão definidos mais à frente.
