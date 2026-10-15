@@ -7,3 +7,6 @@ admin.site.register(Tamanho)
 
 from Camisa12.models import NotaConservacao
 admin.site.register(NotaConservacao)
+
+from Camisa12.models import Time
+admin.site.register(Time)

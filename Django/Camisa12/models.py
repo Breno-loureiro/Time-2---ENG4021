@@ -37,3 +37,21 @@ class NotaConservacao(models.Model):
         Retorna o texto que aparece na interface de admin.
         '''
         return "Nota " + str(self.nota) + ": " + self.titulo
+
+# 3) Banco de dados de times
+class Time(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.TextField()      # ex.: Fluminense
+    sigla = models.TextField()     # ex.: FLU
+    liga = models.TextField()      # ex.: Brasileirão Série A
+
+    class Meta:
+        managed = True
+        db_table = 'Time'
+        ordering = ['nome']
+
+    def __str__(self):
+        '''
+        Retorna o texto que aparece na interface de admin.
+        '''
+        return "Time: " + self.nome
