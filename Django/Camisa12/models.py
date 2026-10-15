@@ -73,3 +73,20 @@ class Liga(models.Model):
         Retorna o texto que aparece na interface de admin.
         '''
         return "Liga: " + self.nome
+
+# 5) Banco de dados de confederações
+class Confederacao(models.Model):
+    id = models.AutoField(primary_key=True)
+    sigla = models.TextField()         # ex.: CONMEBOL
+    continente = models.TextField()    # ex.: América do Sul
+
+    class Meta:
+        managed = True
+        db_table = 'Confederacao'
+        ordering = ['sigla']
+
+    def __str__(self):
+        '''
+        Retorna o texto que aparece na interface de admin.
+        '''
+        return "Confederação: " + self.sigla

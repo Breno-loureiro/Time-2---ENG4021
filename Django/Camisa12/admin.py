@@ -13,3 +13,6 @@ admin.site.register(Time)
 
 from Camisa12.models import Liga
 admin.site.register(Liga)
+
+from Camisa12.models import Confederacao
+admin.site.register(Confederacao)
