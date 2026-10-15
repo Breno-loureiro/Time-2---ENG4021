@@ -55,3 +55,21 @@ class Time(models.Model):
         Retorna o texto que aparece na interface de admin.
         '''
         return "Time: " + self.nome
+
+# 4) Banco de dados de ligas
+class Liga(models.Model):
+    id = models.AutoField(primary_key=True)
+    nome = models.TextField()          # ex.: Brasileirão Série A
+    pais = models.TextField()          # ex.: Brasil
+    divisao = models.IntegerField()    # 1 ou 2
+
+    class Meta:
+        managed = True
+        db_table = 'Liga'
+        ordering = ['nome']
+
+    def __str__(self):
+        '''
+        Retorna o texto que aparece na interface de admin.
+        '''
+        return "Liga: " + self.nome

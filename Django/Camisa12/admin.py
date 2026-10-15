@@ -10,3 +10,6 @@ admin.site.register(NotaConservacao)
 
 from Camisa12.models import Time
 admin.site.register(Time)
+
+from Camisa12.models import Liga
+admin.site.register(Liga)
