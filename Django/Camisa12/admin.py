@@ -4,3 +4,6 @@ from django.contrib import admin
 
 from Camisa12.models import Tamanho
 admin.site.register(Tamanho)
+
+from Camisa12.models import NotaConservacao
+admin.site.register(NotaConservacao)
