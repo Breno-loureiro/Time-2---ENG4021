@@ -1,0 +1,328 @@
+/* Tela Camisas de Futebol - CAMISA 12 */
+
+body {
+    margin: 0;
+    background-color: #0D0D0D;
+    color: #FFFFFF;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+h1, h2 {
+    font-family: "Big Shoulders Display", Arial, sans-serif;
+}
+
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+.botao {
+    display: inline-block;
+    background-color: #00FF87;
+    color: #07110B;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+/* Topo */
+#topo {
+    display: flex;
+    align-items: center;
+    padding: 16px 40px;
+    border-bottom: 1px solid #2A2A2A;
+}
+
+.marca {
+    display: flex;
+    align-items: center;
+    font-family: "Big Shoulders Display", Arial, sans-serif;
+    font-size: 26px;
+    margin-right: 32px;
+}
+
+.marca img {
+    background-color: #00FF87;
+    border-radius: 8px;
+    padding: 8px;
+    margin-right: 10px;
+}
+
+.navegacao {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navegacao li {
+    margin-right: 20px;
+}
+
+.navegacao a {
+    font-weight: 700;
+}
+
+.navegacao .ativo {
+    color: #00FF87;
+}
+
+.entrar {
+    margin-left: auto;
+    font-weight: 700;
+}
+
+/* Hero com a foto do Maracanã */
+#hero {
+    display: flex;
+    align-items: center;
+    padding: 48px 40px;
+    background-image: url("img/maracana-escuro.jpg");
+    background-size: cover;
+}
+
+.hero-texto {
+    width: 45%;
+    margin-right: 40px;
+}
+
+.etiqueta {
+    color: #00FF87;
+    font-weight: 700;
+}
+
+h1 {
+    font-size: 56px;
+    margin: 10px 0;
+}
+
+.hero-texto p {
+    color: #CCCCCC;
+}
+
+/* Destaque da semana */
+#destaque {
+    width: 55%;
+}
+
+#destaque h2 {
+    display: inline-block;
+    background-color: #FFD23F;
+    color: #1D1600;
+    padding: 6px 12px;
+    margin: 0 0 10px 0;
+}
+
+.destaque-card {
+    display: flex;
+    align-items: center;
+    background-color: #141414;
+    border: 2px solid #FFD23F;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.destaque-card img {
+    width: 160px;
+    margin-right: 20px;
+}
+
+.destaque-card h3 {
+    margin: 4px 0;
+}
+
+.destaque-card p {
+    margin: 6px 0;
+}
+
+.clube {
+    color: #A3A3A3;
+    font-size: 12px;
+}
+
+.estrelas {
+    color: #00FF87;
+}
+
+.conservacao {
+    color: #00FF87;
+    font-size: 13px;
+}
+
+.preco {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.pontos {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+}
+
+.pontos li {
+    border: 1px solid #FFD23F;
+    border-radius: 6px;
+    padding: 8px 12px;
+    margin-right: 8px;
+    color: #FFD23F;
+    font-weight: 700;
+    font-size: 13px;
+}
+
+.pontos a {
+    color: #FFD23F;
+}
+
+.vendedor {
+    background-color: #141414;
+    border: 1px solid #2A2A2A;
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 13px;
+}
+
+/* Lista de camisas */
+#lista {
+    background-color: #141414;
+    padding: 40px;
+}
+
+#lista h2 {
+    font-size: 40px;
+    margin-top: 0;
+}
+
+.filtro {
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin-bottom: 24px;
+}
+
+.filtro li {
+    border: 1px solid #00FF87;
+    border-radius: 6px;
+    padding: 6px 12px;
+    margin-right: 8px;
+    font-size: 13px;
+}
+
+/* Selo no lugar do escudo: sigla com a cor do time */
+.selo {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 7px;
+    font-weight: 700;
+    line-height: 24px;
+    text-align: center;
+}
+
+.selo-conmebol   { background-color: #0A3D91; }
+.selo-cbf        { background-color: #0B7A3B; }
+.selo-seriea     { background-color: #1E3C8C; }
+.selo-fluminense { background-color: #7A1F33; }
+.selo-flamengo   { background-color: #C8102E; }
+.selo-vasco      { background-color: #333333; }
+.selo-botafogo   { background-color: #333333; }
+
+.produtos {
+    display: flex;
+    justify-content: space-between;
+}
+
+.card {
+    width: 23%;
+    background-color: #0D0D0D;
+    border: 1px solid #2A2A2A;
+    border-radius: 10px;
+    padding-bottom: 12px;
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.card p,
+.card h3 {
+    margin: 8px 12px;
+}
+
+.time {
+    color: #A3A3A3;
+    font-size: 12px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 24px;
+    border-top: 1px solid #2A2A2A;
+    color: #A3A3A3;
+}
+
+footer a {
+    color: #00FF87;
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    #hero {
+        flex-direction: column;
+    }
+
+    .hero-texto,
+    #destaque {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #destaque {
+        margin-top: 24px;
+    }
+
+    .produtos {
+        flex-wrap: wrap;
+    }
+
+    .card {
+        width: 48%;
+        margin-bottom: 16px;
+    }
+}
+
+/* Celular */
+@media (max-width: 768px) {
+    nav {
+        display: none;
+    }
+
+    #topo,
+    #hero,
+    #lista {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    .destaque-card,
+    .pontos,
+    .filtro {
+        flex-direction: column;
+    }
+
+    .pontos li,
+    .filtro li {
+        margin-bottom: 8px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}

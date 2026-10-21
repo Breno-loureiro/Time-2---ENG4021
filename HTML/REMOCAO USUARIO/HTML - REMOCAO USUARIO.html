@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remover usuário | CAMISA 12</title>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@900&family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS - REMOCAO USUARIO.css">
+</head>
+<body>
+
+    <main>
+        <section id="remover">
+            <a class="marca" href="../Tela Figma/HTML - FIGMA.html">
+                <img src="img/icone-camisa.svg" alt="Ícone de camisa do CAMISA 12">
+                <span class="marca-nome">CAMISA 12</span>
+            </a>
+
+            <h1>REMOVER USUÁRIO</h1>
+
+            <div id="aviso">
+                <strong>Esta ação não pode ser desfeita.</strong>
+                <p>Ao remover o usuário, os dados da conta são apagados permanentemente.</p>
+            </div>
+
+            <form action="#" method="post">
+                <label for="username">Nome de usuário</label>
+                <input type="text" id="username" name="username" placeholder="Digite seu nome de usuário" required>
+
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" placeholder="Confirme sua senha" required>
+
+                <label class="confirmar">
+                    <input type="checkbox" name="confirmo" required>
+                    Confirmo que quero remover meu usuário.
+                </label>
+
+                <div class="botoes">
+                    <a class="cancelar" href="../Tela Figma/HTML - FIGMA.html">Cancelar</a>
+                    <button type="submit">Remover usuário</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+</body>
+</html>
