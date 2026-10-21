@@ -1,0 +1,105 @@
+/* ===== CORES DO SITE =====
+   As mesmas do style.css das telas (futebol, nba, nfl). */
+:root {
+  --verde: #00e676;
+  --verde-escuro: #00c364;
+  --amarelo: #ffd23f;
+  --fundo: #141414;
+}
+
+/* Página inteira: fundo escuro, texto branco */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: var(--fundo);
+  color: white;
+  text-align: center;
+}
+
+/* Topo com o nome do site */
+header {
+  padding: 60px 20px;
+  border-bottom: 3px solid var(--verde);
+}
+
+header h1 {
+  font-size: 48px;
+  margin: 0;
+  color: var(--verde);
+}
+
+/* Palavras em negrito ficam amarelas */
+strong {
+  color: var(--amarelo);
+}
+
+/* Cada bloco da página (section) ganha espaço em volta */
+section {
+  padding: 50px 20px;
+}
+
+/* Seção destacada (Vendedor Fundador): fundo um pouco mais claro */
+.destaque {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.destaque h2 {
+  color: var(--amarelo);
+}
+
+/* Formulário: uma caixinha embaixo da outra, centralizado */
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 350px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+input {
+  padding: 10px;
+  margin: 5px 0 15px 0;
+  border: 1px solid #444;
+  border-radius: 8px;
+  background: #222;
+  color: white;
+}
+
+/* Botões verdes arredondados */
+button,
+.botao {
+  background: var(--verde);
+  color: var(--fundo);
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Quando o mouse passa por cima, o verde escurece */
+button:hover,
+.botao:hover {
+  background: var(--verde-escuro);
+}
+
+/* Lista de vantagens sem as bolinhas e centralizada */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+li {
+  margin: 10px 0;
+}
+
+/* Rodapé */
+footer {
+  border-top: 1px solid #333;
+  color: #999;
+  padding: 15px;
+  font-size: 14px;
+}
