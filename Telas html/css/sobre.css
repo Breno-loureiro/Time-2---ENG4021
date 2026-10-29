@@ -1,0 +1,209 @@
+/* ===== CORES E FONTES =====
+   As mesmas das telas de futebol, NBA e NFL. */
+:root {
+  --verde: #00e676;
+  --verde-escuro: #00c364;
+  --fundo: #141414;
+  --cartao: #1c1c1c;
+  --borda: #2a2a2a;
+  --texto-cinza: #b5b5b5;
+  --fonte-titulo: "Bebas Neue", Impact, sans-serif;
+  --fonte-texto: "Inter", Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte-texto);
+  background: var(--fundo);
+  color: white;
+}
+
+/* ===== TOPO: logo à esquerda, botões à direita ===== */
+.topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  border-bottom: 1px solid var(--borda);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  text-decoration: none;
+  color: white;
+}
+
+/* Quadrado verde com a camisa */
+.logo-icone {
+  background: var(--verde);
+  color: var(--fundo);
+  width: 56px;
+  height: 56px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-nome {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 34px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.logo-slogan {
+  display: block;
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 800;
+  margin-top: 4px;
+}
+
+.topo-botoes {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.link-entrar {
+  color: white;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ===== BOTÃO VERDE ===== */
+.botao {
+  display: inline-block;
+  background: var(--verde);
+  color: var(--fundo);
+  font-weight: 800;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 6px;
+}
+
+.botao:hover {
+  background: var(--verde-escuro);
+}
+
+/* ===== ETIQUETA COM CONTORNO VERDE ===== */
+.etiqueta {
+  display: inline-block;
+  color: var(--verde);
+  border: 1px solid var(--verde);
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: 800;
+  font-size: 14px;
+  margin: 0 0 20px 0;
+}
+
+/* ===== HERO: a primeira parte, com o título gigante ===== */
+.hero {
+  padding: 60px 40px 80px 40px;
+  background: radial-gradient(circle at 25% 80%, #2a1a10 0%, var(--fundo) 45%);
+}
+
+.hero h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 110px;
+  line-height: 0.95;
+  font-weight: normal;
+  margin: 0 0 30px 0;
+}
+
+.hero-texto {
+  color: var(--texto-cinza);
+  font-size: 20px;
+  line-height: 1.6;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+/* ===== BLOCOS DE CONTEÚDO ===== */
+.bloco {
+  padding: 60px 40px;
+  border-top: 1px solid var(--borda);
+}
+
+.bloco h2 {
+  font-family: var(--fonte-titulo);
+  font-size: 60px;
+  font-weight: normal;
+  margin: 0 0 20px 0;
+}
+
+.bloco-texto {
+  color: var(--texto-cinza);
+  font-size: 18px;
+  line-height: 1.6;
+  max-width: 650px;
+}
+
+/* ===== CARTÕES LADO A LADO ===== */
+.cartoes {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cartao {
+  background: var(--cartao);
+  border: 1px solid var(--borda);
+  border-radius: 10px;
+  padding: 28px;
+  flex: 1;
+  min-width: 240px;
+}
+
+.cartao h3 {
+  font-family: var(--fonte-titulo);
+  font-size: 30px;
+  font-weight: normal;
+  color: var(--verde);
+  margin: 0 0 10px 0;
+}
+
+.cartao ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cartao li {
+  color: var(--texto-cinza);
+  padding: 10px 0;
+  border-bottom: 1px solid var(--borda);
+}
+
+/* Cartões com número grande */
+.numero span {
+  font-family: var(--fonte-titulo);
+  font-size: 64px;
+  color: var(--verde);
+}
+
+.numero p {
+  color: var(--texto-cinza);
+  margin: 0;
+}
+
+/* ===== RODAPÉ ===== */
+.rodape {
+  border-top: 1px solid var(--borda);
+  padding: 20px 40px;
+  color: #777;
+}
+
+/* ===== CELULAR ===== */
+@media (max-width: 700px) {
+  .topo { padding: 16px 20px; }
+  .link-entrar { display: none; }
+  .hero, .bloco { padding-left: 20px; padding-right: 20px; }
+  .hero h1 { font-size: 64px; }
+  .bloco h2 { font-size: 44px; }
+}

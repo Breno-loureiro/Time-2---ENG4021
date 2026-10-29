@@ -108,17 +108,18 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
           <input type="search" placeholder="Buscar...">
         </label>
-        <select aria-label="Confederação">
-          <option>Confederação</option>
-          <option>CBF</option>
-          <option>UEFA</option>
-          <option>Conmebol</option>
+        <select aria-label="Filtrar por time" class="filtro-time">
+          <option value="">Todos os times</option>
         </select>
         <select aria-label="Faixa de preço">
           <option>Faixa de preço</option>
           <option>Até R$ 200</option>
           <option>R$ 200 a R$ 350</option>
           <option>Acima de R$ 350</option>
+        </select>
+        <select aria-label="Exibir produtos" class="filtro-favoritos">
+          <option value="todos">Todos os produtos</option>
+          <option value="favoritos">Somente favoritos</option>
         </select>
         <div class="filtros__ordenar">
           Ordenar:
@@ -386,5 +387,6 @@
     </div>
   </footer>
 
+  <script src="js/catalogo.js"></script>
 </body>
 </html>

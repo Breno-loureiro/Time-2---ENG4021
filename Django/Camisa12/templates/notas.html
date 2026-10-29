@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notas de Conservação</title>
+</head>
+<body>
+
+    <h1>Notas de conservação da camisa</h1>
+    <p>O vendedor dá uma nota de 1 a 5 para o estado da camisa, sempre com fotos reais.</p>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nota</th>
+                <th>Estado</th>
+                <th>O que significa</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for nota in notas %}
+                <tr>
+                    <td>{{ nota.nota }}/5</td>
+                    <td>{{ nota.titulo }}</td>
+                    <td>{{ nota.descricao }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">Nenhuma nota cadastrada.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
