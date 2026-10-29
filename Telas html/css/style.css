@@ -617,6 +617,64 @@ button, input, select { font: inherit; }
   .filtros__busca { width: 100%; }
   .destaque .btn { margin-left: 18px; }
 }
+.hero--lojas {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,10,.9) 0%, rgba(10,10,10,.6) 60%, rgba(10,10,10,.45) 100%),
+    /* url("../img/hero-lojas.jpg"), */
+    radial-gradient(ellipse at 60% 40%, #4a4036 0%, #2a241f 45%, #141210 100%);
+}
+
+.hero--lojas .hero__texto { max-width: 950px; }
+
+.lojas__topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.lojas__contador {
+  color: var(--verde);
+  font-weight: 800;
+  text-transform: uppercase;
+  margin-bottom: 36px;
+}
+
+.lojas {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.loja { padding: 30px; background: #0f0f0f; }
+.loja--destaque { border-color: var(--verde); }
+
+.loja__topo { display: flex; align-items: center; gap: 10px; }
+.loja__topo .card__nome { font-size: 20px; margin: 0; }
+.verificado { text-transform: uppercase; white-space: nowrap; }
+
+.loja__tipo { color: var(--texto-suave); margin: 6px 0 22px; }
+.loja__especialidade { color: var(--verde); font-weight: 700; margin-bottom: 16px; }
+.loja .avaliacao b { color: var(--texto); font-size: 18px; }
+
+.loja__botao {
+  align-self: flex-start;
+  margin-top: 26px;
+  background: var(--card-2);
+  border: 1px solid var(--borda);
+  border-radius: 6px;
+  padding: 14px 18px;
+  font-size: 14px;
+  font-weight: 800;
+  transition: border-color .2s, color .2s;
+}
+.loja__botao:hover { border-color: var(--verde); color: var(--verde); }
+
+@media (max-width: 1180px) { .lojas { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 700px) {
+  .lojas { grid-template-columns: 1fr; }
+  .lojas__topo { flex-direction: column; align-items: flex-start; }
+}
 
 
 /* ===== Sprint 6: filtros funcionais e favoritos ===== */
