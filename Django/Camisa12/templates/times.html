@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Times | CAMISA 12</title>
+</head>
+<body>
+
+    <h1>Busca de times</h1>
+    <p>Digite o nome do time para encontrar as camisas dele.</p>
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" name="search" placeholder="Buscar time..." value="{{ search_query }}">
+        <button type="submit">Buscar</button>
+    </form>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Time</th>
+                <th>Sigla</th>
+                <th>Liga</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for time in times %}
+                <tr>
+                    <td>{{ time.nome }}</td>
+                    <td>{{ time.sigla }}</td>
+                    <td>{{ time.liga }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="3">Nenhum time encontrado.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <p><a href="{% url 'notas' %}">Ver as notas de conservação</a></p>
+</body>
+</html>
