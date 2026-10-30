@@ -2,8 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-
-from django.shortcuts import render
+from Camisa12.forms import CadastroUsuarioForm
 from Camisa12.models import NotaConservacao, Time, Produto
 
 # Create your views here.
