@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-categoria="Futebol">
 
   <!-- ===== HEADER ===== -->
   <header class="header">
@@ -42,9 +42,9 @@
       <div class="acoes">
         <a href="#" class="acoes__entrar">Entrar</a>
         <a href="#" class="btn">Criar conta</a>
-        <a href="#" class="carrinho" aria-label="Carrinho">
+        <a href="carrinho.html" class="carrinho" aria-label="Abrir carrinho">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          <span class="carrinho__qtd">3</span>
+          <span class="carrinho__qtd" aria-label="0 itens no carrinho">0</span>
         </a>
       </div>
     </div>
@@ -145,7 +145,7 @@
             <p class="card__loja">Ajustar de Centauro</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 349,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -160,7 +160,7 @@
             <p class="card__loja">Ajustar de Centauro</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 379,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -176,7 +176,7 @@
             <p class="card__loja">Ajustar de Nike.com</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 339,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -192,7 +192,7 @@
             <p class="card__loja">Ajustar de Adidas</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 319,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -207,7 +207,7 @@
             <p class="card__loja">Ajustar de Puma</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 349,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -222,7 +222,7 @@
             <p class="card__loja">Ajustar de Puma</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -237,7 +237,7 @@
             <p class="card__loja">Ajustar de Netshoes</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 369,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -252,7 +252,7 @@
             <p class="card__loja">Ajustar de Mercado Livre</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -267,7 +267,7 @@
             <p class="card__loja">Ajustar de Centauro</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 319,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -282,7 +282,7 @@
             <p class="card__loja">Ajustar de Adidas</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -297,7 +297,7 @@
             <p class="card__loja">Ajustar de Netshoes</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 309,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -312,20 +312,14 @@
             <p class="card__loja">Ajustar de Kappa</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
       </section>
 
       <!-- Paginação -->
-      <nav class="paginacao" aria-label="Paginação">
-        <a href="#" class="desativada" aria-label="Anterior">←</a>
-        <a href="#" class="ativa">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#" aria-label="Próxima">→</a>
-      </nav>
+      <nav class="paginacao" aria-label="Paginação" aria-live="polite"></nav>
     </div>
   </main>
 
@@ -388,5 +382,6 @@
   </footer>
 
   <script src="js/catalogo.js"></script>
+  <script src="js/carrinho.js"></script>
 </body>
 </html>
