@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -90,3 +91,105 @@ class Confederacao(models.Model):
         Retorna o texto que aparece na interface de admin.
         '''
         return "Confederação: " + self.sigla
+
+# 6) Banco de dados de produtos
+class Produto(models.Model):
+
+    CATEGORIAS = [
+        ("FUTEBOL", "Futebol"),
+        ("NBA", "NBA"),
+        ("NFL", "NFL"),
+    ]
+
+    id = models.AutoField(
+        primary_key=True
+    )
+
+    nome = models.CharField(
+        max_length=200
+    )
+
+    categoria = models.CharField(
+        max_length=20,
+        choices=CATEGORIAS
+    )
+
+    marca = models.CharField(
+        max_length=100,
+        blank=True
+    )
+
+    modelo = models.CharField(
+        max_length=100,
+        blank=True
+    )
+
+    ano = models.PositiveIntegerField(
+        null=True,
+        blank=True
+    )
+
+    descricao = models.TextField(
+        blank=True
+    )
+
+    preco = models.DecimalField(
+        max_digits=10,
+        decimal_places=2
+    )
+
+    imagem = models.URLField(
+        blank=True
+    )
+
+    ativo = models.BooleanField(
+        default=True
+    )
+
+    tamanho = models.ForeignKey(
+        Tamanho,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="produtos"
+    )
+
+    conservacao = models.ForeignKey(
+        NotaConservacao,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="produtos"
+    )
+
+    time = models.ForeignKey(
+        Time,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name="produtos"
+    )
+
+    vendedor = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="produtos"
+    )
+
+    criado_em = models.DateTimeField(
+        auto_now_add=True
+    )
+
+    atualizado_em = models.DateTimeField(
+        auto_now=True
+    )
+
+
+    class Meta:
+        managed = True
+        db_table = "Produto"
+        ordering = ["-criado_em"]
+
+
+    def __str__(self):
+        return self.nome

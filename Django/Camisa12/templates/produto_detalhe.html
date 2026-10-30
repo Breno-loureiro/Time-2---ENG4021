@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {{ produto.nome }} | CAMISA 12
+    </title>
+
+</head>
+
+
+<body>
+
+
+<a href="{% url 'Camisa12:produtos' %}">
+    ← Voltar
+</a>
+
+
+<h1>
+    {{ produto.nome }}
+</h1>
+
+
+{% if produto.imagem %}
+
+    <img
+        src="{{ produto.imagem }}"
+        alt="{{ produto.nome }}"
+        width="350"
+    >
+
+{% endif %}
+
+
+<h2>
+    R$ {{ produto.preco }}
+</h2>
+
+
+<p>
+    <strong>Categoria:</strong>
+
+    {{ produto.get_categoria_display }}
+</p>
+
+
+{% if produto.time %}
+
+<p>
+
+    <strong>Time:</strong>
+
+    {{ produto.time.nome }}
+
+</p>
+
+{% endif %}
+
+
+{% if produto.marca %}
+
+<p>
+
+    <strong>Marca:</strong>
+
+    {{ produto.marca }}
+
+</p>
+
+{% endif %}
+
+
+{% if produto.modelo %}
+
+<p>
+
+    <strong>Modelo:</strong>
+
+    {{ produto.modelo }}
+
+</p>
+
+{% endif %}
+
+
+{% if produto.ano %}
+
+<p>
+
+    <strong>Ano:</strong>
+
+    {{ produto.ano }}
+
+</p>
+
+{% endif %}
+
+
+{% if produto.tamanho %}
+
+<p>
+
+    <strong>Tamanho:</strong>
+
+    {{ produto.tamanho.nome }}
+
+</p>
+
+{% endif %}
+
+
+{% if produto.conservacao %}
+
+<p>
+
+    <strong>Conservação:</strong>
+
+    {{ produto.conservacao.titulo }}
+
+    ({{ produto.conservacao.nota }}/5)
+
+</p>
+
+{% endif %}
+
+
+{% if produto.descricao %}
+
+<h3>
+    Descrição
+</h3>
+
+<p>
+    {{ produto.descricao }}
+</p>
+
+{% endif %}
+
+
+<p>
+
+    <strong>Vendedor:</strong>
+
+    {{ produto.vendedor.username }}
+
+</p>
+
+
+</body>
+
+</html>

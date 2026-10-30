@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Criar conta | CAMISA 12</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #111;
+            color: white;
+        }
+
+        header {
+            background-color: black;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: white;
+        }
+
+        .container {
+            max-width: 450px;
+            margin: 50px auto;
+            background-color: #1d1d1d;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border-radius: 6px;
+            border: 1px solid #555;
+        }
+
+        button {
+            width: 100%;
+            padding: 13px;
+            margin-top: 25px;
+            border: none;
+            border-radius: 6px;
+            background-color: #2ecc71;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .erro {
+            color: #ff6b6b;
+            font-size: 14px;
+        }
+
+        .login {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        a {
+            color: #2ecc71;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <h1>CAMISA 12</h1>
+
+</header>
+
+
+<div class="container">
+
+    <h2>Criar conta</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        {% for field in form %}
+
+            <label>
+                {{ field.label }}
+            </label>
+
+            {{ field }}
+
+            {% if field.help_text %}
+
+                <small>
+                    {{ field.help_text }}
+                </small>
+
+            {% endif %}
+
+
+            {% for error in field.errors %}
+
+                <p class="erro">
+                    {{ error }}
+                </p>
+
+            {% endfor %}
+
+        {% endfor %}
+
+
+        {% for error in form.non_field_errors %}
+
+            <p class="erro">
+                {{ error }}
+            </p>
+
+        {% endfor %}
+
+
+        <button type="submit">
+            Criar conta
+        </button>
+
+    </form>
+
+
+    <div class="login">
+
+        Já possui uma conta?
+
+        <a href="{% url 'Camisa12:login' %}">
+            Entrar
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
