@@ -10,10 +10,6 @@ app_name = "Camisa12"
 urlpatterns = [
 
     # Administração
-    path(
-        "admin/",
-        admin.site.urls
-    ),
 
 
 
