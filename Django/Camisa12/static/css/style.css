@@ -722,3 +722,11 @@ button, input, select { font: inherit; }
     linear-gradient(90deg, rgba(10,10,10,.9) 0%, rgba(10,10,10,.55) 60%, rgba(10,10,10,.35) 100%),
     radial-gradient(ellipse at 70% 60%, #3f7f1e 0%, #1f4410 45%, #0c1a06 100%);
 }
+
+
+/* Página de Acessórios */
+.hero--acessorios {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,10,.9) 0%, rgba(10,10,10,.55) 60%, rgba(10,10,10,.35) 100%),
+    radial-gradient(ellipse at 70% 45%, #6b4a1c 0%, #33240e 45%, #120d06 100%);
+}
