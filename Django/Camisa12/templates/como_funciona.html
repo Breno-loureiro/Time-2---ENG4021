@@ -1,0 +1,171 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Como Funciona | CAMISA 12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="{% url 'Camisa12:futebol' %}" class="logo">
+        <div class="logo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linejoin="round"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3c0 2-1.8 3-4 3S8 5 8 3z"/></svg></div>
+        <div>
+          <span class="logo__nome">CAMISA 12</span>
+          <span class="logo__slogan">A VOZ DA TORCIDA</span>
+        </div>
+      </a>
+
+      <nav>
+        <ul class="menu">
+          <li><a href="{% url 'Camisa12:home' %}">Início</a></li>
+          <li><a href="{% url 'Camisa12:futebol' %}">Camisas de Futebol</a></li>
+          <li><a href="{% url 'Camisa12:nba' %}">NBA</a></li>
+          <li><a href="{% url 'Camisa12:nfl' %}">NFL</a></li>
+          <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+          <li><a href="{% url 'Camisa12:acessorios' %}">Acessórios</a></li>
+          <li><a href="{% url 'Camisa12:lojas' %}">Lojas</a></li>
+        </ul>
+      </nav>
+
+      <form class="busca" action="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input type="search" placeholder="Buscar produtos, times, marcas...">
+      </form>
+
+      <div class="acoes">
+        <a href="{% url 'Camisa12:login' %}" class="acoes__entrar">Entrar</a>
+        <a href="{% url 'Camisa12:cadastro' %}" class="btn">Criar conta</a>
+        <a href="#" class="carrinho" aria-label="Carrinho">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="carrinho__qtd">3</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero--como">
+    <div class="container hero__inner">
+      <div class="hero__texto">
+        <span class="selo">Como funciona o CAMISA 12</span>
+        <h1 class="hero__titulo">Do clique ao manto<br>em 6 passos</h1>
+        <p class="hero__descricao">O CAMISA 12 reúne as lojas de artigos esportivos em um só lugar para você buscar, comparar e comprar com segurança.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="catalogo">
+    <div class="container">
+      <div class="lojas__topo">
+        <div>
+          <h2 class="catalogo__titulo">Passo a passo</h2>
+          <p class="catalogo__total">Veja como encontrar a camisa certa pelo melhor preço.</p>
+        </div>
+        <span class="lojas__contador">6 passos</span>
+      </div>
+
+      <section class="lojas">
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Busque o produto</h3><span class="verificado">Passo 1</span></div>
+          <p class="loja__tipo">Procure pelo time, jogador, temporada ou modelo nas páginas de Futebol, NBA, NFL, Chuteiras e Acessórios.</p>
+          <a href="{% url 'Camisa12:futebol' %}" class="loja__botao">Ver camisas de futebol →</a>
+        </article>
+
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Compare os preços</h3><span class="verificado">Passo 2</span></div>
+          <p class="loja__tipo">O mesmo produto aparece em várias lojas. Veja lado a lado e escolha a melhor oferta.</p>
+          <a href="{% url 'Camisa12:produtos' %}" class="loja__botao">Ver todos os produtos →</a>
+        </article>
+
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Confira a conservação</h3><span class="verificado">Passo 3</span></div>
+          <p class="loja__tipo">Camisas usadas recebem uma nota de 1 a 5, sempre com fotos reais do estado da peça.</p>
+          <a href="{% url 'Camisa12:notas' %}" class="loja__botao">Entender as notas →</a>
+        </article>
+
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Veja quem vende</h3><span class="verificado">Passo 4</span></div>
+          <p class="loja__tipo">Todas as lojas são verificadas e avaliadas pelos torcedores que já compraram.</p>
+          <a href="{% url 'Camisa12:lojas' %}" class="loja__botao">Ver lojas parceiras →</a>
+        </article>
+
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Compre com segurança</h3><span class="verificado">Passo 5</span></div>
+          <p class="loja__tipo">Adicione ao carrinho, revise o pedido e finalize a compra direto com a loja.</p>
+          <a href="{% url 'Camisa12:carrinho' %}" class="loja__botao">Ver meu carrinho →</a>
+        </article>
+
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Avalie a compra</h3><span class="verificado">Passo 6</span></div>
+          <p class="loja__tipo">Depois de receber, dê sua nota para o produto e para a loja e ajude outros torcedores.</p>
+          <a href="{% url 'Camisa12:cadastro' %}" class="loja__botao">Criar minha conta →</a>
+        </article>
+      </section>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape__grade">
+        <div>
+          <div class="rodape__logo"><span></span>CAMISA 12</div>
+          <p class="rodape__sobre">O maior portal agregador e comparador de camisas e artigos esportivos do Brasil. Encontre o item certo com segurança e pelo menor preço.</p>
+          <div class="redes">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Sobre</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:sobre' %}">Quem Somos</a></li>
+            <li><a href="{% url 'Camisa12:como_funciona' %}">Como Funciona</a></li>
+            <li><a href="{% url 'Camisa12:lojas' %}">Lojas Parceiras</a></li>
+            <li><a href="#">Blog Oficial</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:futebol' %}">Camisas Futebol</a></li>
+            <li><a href="{% url 'Camisa12:nba' %}">Camisas NBA</a></li>
+            <li><a href="{% url 'Camisa12:nfl' %}">Camisas NFL</a></li>
+            <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Suporte</h4>
+          <ul>
+            <li><a href="#">Fale Conosco</a></li>
+            <li><a href="#">Central de Ajuda</a></li>
+            <li><a href="#">Trocas e Devoluções</a></li>
+            <li><a href="#">Termos de Uso</a></li>
+          </ul>
+        </div>
+
+        <div class="newsletter">
+          <h4>Receba ofertas exclusivas</h4>
+          <p>Alertas de descontos das maiores lojas esportivas do Brasil.</p>
+          <form action="#">
+            <input type="email" placeholder="Seu melhor e-mail...">
+            <button type="submit" class="btn">OK</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="rodape__copy">© 2026 CAMISA 12 · Projeto acadêmico PUC-Rio</p>
+    </div>
+  </footer>
+
+</body>
+</html>
