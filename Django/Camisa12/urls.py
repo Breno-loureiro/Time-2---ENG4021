@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 
 from Camisa12 import views
-
+from django.views.generic import TemplateView
 
 app_name = "Camisa12"
 
@@ -10,10 +10,7 @@ app_name = "Camisa12"
 urlpatterns = [
 
     # Administração
-    path(
-        "admin/",
-        admin.site.urls
-    ),
+
 
 
     # Funcionalidades que já existiam
@@ -68,6 +65,17 @@ urlpatterns = [
         views.produto_detalhe,
         name="produto_detalhe"
     ),
+        path("", TemplateView.as_view(template_name="futebol.html"), name="home"),
+    path("futebol/", TemplateView.as_view(template_name="futebol.html"), name="futebol"),
+    path("nba/", TemplateView.as_view(template_name="nba.html"), name="nba"),
+    path("nfl/", TemplateView.as_view(template_name="nfl.html"), name="nfl"),
+    path("chuteiras/", TemplateView.as_view(template_name="chuteiras.html"), name="chuteiras"),
+    path("acessorios/", TemplateView.as_view(template_name="acessorios.html"), name="acessorios"),
+    path("sobre/", TemplateView.as_view(template_name="sobre.html"), name="sobre"),
+    path("como-funciona/", TemplateView.as_view(template_name="como_funciona.html"), name="como_funciona"),
+    path("lojas/", TemplateView.as_view(template_name="lojas.html"), name="lojas"),
+    path("lancamento/", TemplateView.as_view(template_name="lancamento.html"), name="lancamento"),
+    path("carrinho/", TemplateView.as_view(template_name="carrinho.html"), name="carrinho"),
     #Área do vendedor
     path(
         "meus-anuncios/",

@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -7,14 +9,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body data-categoria="Futebol">
 
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="container header__inner">
-      <a href="futebol.html" class="logo">
+      <a href="{% url 'Camisa12:futebol' %}" class="logo">
         <div class="logo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linejoin="round"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3c0 2-1.8 3-4 3S8 5 8 3z"/></svg></div>
         <div>
           <span class="logo__nome">CAMISA 12</span>
@@ -24,13 +26,13 @@
 
       <nav>
         <ul class="menu">
-        <li><a href="#">Início</a></li>
-        <li><a href="futebol.html" class="ativo">Camisas de Futebol</a></li>
-        <li><a href="nba.html">NBA</a></li>
-        <li><a href="nfl.html">NFL</a></li>
-        <li><a href="#">Chuteiras</a></li>
-        <li><a href="#">Acessórios</a></li>
-        <li><a href="#">Lojas</a></li>
+        <li><a href="{% url 'Camisa12:home' %}">Início</a></li>
+        <li><a href="{% url 'Camisa12:futebol' %}" class="ativo">Camisas de Futebol</a></li>
+        <li><a href="{% url 'Camisa12:nba' %}">NBA</a></li>
+        <li><a href="{% url 'Camisa12:nfl' %}">NFL</a></li>
+        <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+        <li><a href="{% url 'Camisa12:acessorios' %}">Acessórios</a></li>
+        <li><a href="{% url 'Camisa12:lojas' %}">Lojas</a></li>
         </ul>
       </nav>
 
@@ -40,11 +42,11 @@
       </form>
 
       <div class="acoes">
-        <a href="#" class="acoes__entrar">Entrar</a>
-        <a href="#" class="btn">Criar conta</a>
-        <a href="#" class="carrinho" aria-label="Carrinho">
+        <a href="{% url 'Camisa12:login' %}" class="acoes__entrar">Entrar</a>
+        <a href="{% url 'Camisa12:cadastro' %}" class="btn">Criar conta</a>
+        <a href="{% url 'Camisa12:carrinho' %}" class="carrinho" aria-label="Abrir carrinho">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          <span class="carrinho__qtd">3</span>
+          <span class="carrinho__qtd" aria-label="0 itens no carrinho">0</span>
         </a>
       </div>
     </div>
@@ -145,7 +147,7 @@
             <p class="card__loja">Ajustar de Centauro</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 349,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -160,7 +162,7 @@
             <p class="card__loja">Ajustar de Centauro</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 379,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -176,7 +178,7 @@
             <p class="card__loja">Ajustar de Nike.com</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 339,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -192,7 +194,7 @@
             <p class="card__loja">Ajustar de Adidas</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 319,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -207,7 +209,7 @@
             <p class="card__loja">Ajustar de Puma</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 349,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -222,7 +224,7 @@
             <p class="card__loja">Ajustar de Puma</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -237,7 +239,7 @@
             <p class="card__loja">Ajustar de Netshoes</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 369,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -252,7 +254,7 @@
             <p class="card__loja">Ajustar de Mercado Livre</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -267,7 +269,7 @@
             <p class="card__loja">Ajustar de Centauro</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 319,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -282,7 +284,7 @@
             <p class="card__loja">Ajustar de Adidas</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -297,7 +299,7 @@
             <p class="card__loja">Ajustar de Netshoes</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 309,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -312,20 +314,14 @@
             <p class="card__loja">Ajustar de Kappa</p>
             <div class="card__rodape">
               <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
       </section>
 
       <!-- Paginação -->
-      <nav class="paginacao" aria-label="Paginação">
-        <a href="#" class="desativada" aria-label="Anterior">←</a>
-        <a href="#" class="ativa">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#" aria-label="Próxima">→</a>
-      </nav>
+      <nav class="paginacao" aria-label="Paginação" aria-live="polite"></nav>
     </div>
   </main>
 
@@ -346,9 +342,9 @@
         <div>
           <h4>Sobre</h4>
           <ul>
-            <li><a href="#">Quem Somos</a></li>
-            <li><a href="#">Como Funciona</a></li>
-            <li><a href="#">Lojas Parceiras</a></li>
+            <li><a href="{% url 'Camisa12:sobre' %}">Quem Somos</a></li>
+            <li><a href="{% url 'Camisa12:como_funciona' %}">Como Funciona</a></li>
+            <li><a href="{% url 'Camisa12:lojas' %}">Lojas Parceiras</a></li>
             <li><a href="#">Blog Oficial</a></li>
           </ul>
         </div>
@@ -356,10 +352,10 @@
         <div>
           <h4>Categorias</h4>
           <ul>
-            <li><a href="futebol.html">Camisas Futebol</a></li>
-            <li><a href="nba.html">Camisas NBA</a></li>
-            <li><a href="nfl.html">Camisas NFL</a></li>
-            <li><a href="#">Chuteiras</a></li>
+            <li><a href="{% url 'Camisa12:futebol' %}">Camisas Futebol</a></li>
+            <li><a href="{% url 'Camisa12:nba' %}">Camisas NBA</a></li>
+            <li><a href="{% url 'Camisa12:nfl' %}">Camisas NFL</a></li>
+            <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
           </ul>
         </div>
 
@@ -387,6 +383,7 @@
     </div>
   </footer>
 
-  <script src="js/catalogo.js"></script>
+  <script src="{% static 'js/catalogo.js' %}"></script>
+  <script src="{% static 'js/carrinho.js' %}"></script>
 </body>
 </html>

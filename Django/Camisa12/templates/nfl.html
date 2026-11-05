@@ -1,20 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Produtos NBA | CAMISA 12</title>
+  <title>Produtos NFL | CAMISA 12</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
-<body>
+<body data-categoria="NFL">
 
   <!-- ===== HEADER ===== -->
   <header class="header">
     <div class="container header__inner">
-      <a href="futebol.html" class="logo">
+      <a href="{% url 'Camisa12:futebol' %}" class="logo">
         <div class="logo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linejoin="round"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3c0 2-1.8 3-4 3S8 5 8 3z"/></svg></div>
         <div>
           <span class="logo__nome">CAMISA 12</span>
@@ -24,13 +25,13 @@
 
       <nav>
         <ul class="menu">
-        <li><a href="#">Início</a></li>
-        <li><a href="futebol.html">Camisas de Futebol</a></li>
-        <li><a href="nba.html" class="ativo">NBA</a></li>
-        <li><a href="nfl.html">NFL</a></li>
-        <li><a href="#">Chuteiras</a></li>
-        <li><a href="#">Acessórios</a></li>
-        <li><a href="#">Lojas</a></li>
+        <li><a href="{% url 'Camisa12:home' %}">Início</a></li>
+        <li><a href="{% url 'Camisa12:futebol' %}">Camisas de Futebol</a></li>
+        <li><a href="{% url 'Camisa12:nba' %}">NBA</a></li>
+        <li><a href="{% url 'Camisa12:nfl' %}" class="ativo">NFL</a></li>
+        <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+        <li><a href="{% url 'Camisa12:acessorios' %}">Acessórios</a></li>
+        <li><a href="{% url 'Camisa12:lojas' %}">Lojas</a></li>
         </ul>
       </nav>
 
@@ -40,24 +41,24 @@
       </form>
 
       <div class="acoes">
-        <a href="#" class="acoes__entrar">Entrar</a>
-        <a href="#" class="btn">Criar conta</a>
-        <a href="#" class="carrinho" aria-label="Carrinho">
+        <a href="{% url 'Camisa12:login' %}" class="acoes__entrar">Entrar</a>
+        <a href="{% url 'Camisa12:cadastro' %}" class="btn">Criar conta</a>
+        <a href="{% url 'Camisa12:carrinho' %}" class="carrinho" aria-label="Abrir carrinho">
           <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
-          <span class="carrinho__qtd">3</span>
+          <span class="carrinho__qtd" aria-label="0 itens no carrinho">0</span>
         </a>
       </div>
     </div>
   </header>
 
   <!-- ===== HERO ===== -->
-  <section class="hero hero--nba">
+  <section class="hero hero--nfl">
     <div class="container hero__inner">
       <div class="hero__texto">
-        <span class="selo">Vista o jogo. Viva a NBA.</span>
-        <h1 class="hero__titulo">Vista o jogo.<br>Viva a NBA.</h1>
-        <p class="hero__descricao">Regatas, bolas, bonés e acessórios oficiais dos seus times favoritos. Compare preços e entre em quadra com estilo.</p>
-        <a href="#catalogo" class="btn">Ver todos os produtos</a>
+        <span class="selo">A casa do futebol americano</span>
+        <h1 class="hero__titulo">Vista as cores<br>da sua franquia</h1>
+        <p class="hero__descricao">Camisas, bolas, capacetes e acessórios das maiores franquias da NFL. Compare ofertas e entre em campo com seu time.</p>
+        <a href="#catalogo" class="btn">Explorar NFL</a>
       </div>
     </div>
   </section>
@@ -65,8 +66,8 @@
   <!-- ===== CATÁLOGO ===== -->
   <main class="catalogo" id="catalogo">
     <div class="container">
-      <h2 class="catalogo__titulo">Produtos NBA</h2>
-      <p class="catalogo__total">40 produtos encontrados</p>
+      <h2 class="catalogo__titulo">Catálogo de produtos NFL</h2>
+      <p class="catalogo__total">30 produtos encontrados</p>
 
       <!-- Filtros -->
       <form class="filtros" action="#">
@@ -77,8 +78,8 @@
         </label>
         <select aria-label="Conferência">
           <option>Conferência</option>
-          <option>Leste</option>
-          <option>Oeste</option>
+          <option>AFC</option>
+          <option>NFC</option>
         </select>
         <select aria-label="Faixa de preço">
           <option>Faixa de preço</option>
@@ -104,95 +105,48 @@
       <!-- Grade de produtos -->
       <section class="produtos">
         <article class="card">
-          <div class="card__midia midia--quadra">
+          <div class="card__midia midia--estadio">
           <span class="etiqueta">Mais vendida</span>
           </div>
           <div class="card__corpo">
-            <span class="card__time">Dallas Mavericks</span>
-            <h3 class="card__nome">Regata Luka #77 • Mavericks</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.8 · 334 av.</div>
+            <span class="card__time">Kansas City Chiefs</span>
+            <h3 class="card__nome">Camisa Mahomes #15 • Chiefs</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.9 · 402 av.</div>
             <p class="card__loja">Ajustar de Nike</p>
             <div class="card__rodape">
-              <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <span class="card__preco">R$ 449,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card__midia midia--arena">
+          <div class="card__midia midia--estadio">
           </div>
           <div class="card__corpo">
-            <span class="card__time">Phoenix Suns</span>
-            <h3 class="card__nome">Regata KD #35 • Suns</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.6 · 187 av.</div>
+            <span class="card__time">Philadelphia Eagles</span>
+            <h3 class="card__nome">Camisa Hurts #1 • Eagles</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.7 · 256 av.</div>
             <p class="card__loja">Ajustar de Nike</p>
             <div class="card__rodape">
-              <span class="card__preco">R$ 319,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <span class="card__preco">R$ 429,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
 
         <article class="card">
-          <div class="card__midia midia--retro">
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Philadelphia 76ers</span>
-            <h3 class="card__nome">Regata Embiid #21 • 76ers</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.5 · 167 av.</div>
-            <p class="card__loja">Ajustar de Nike</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 319,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__midia midia--quadra">
+          <div class="card__midia midia--estadio">
           <span class="etiqueta">Destaque</span>
           </div>
           <div class="card__corpo">
-            <span class="card__time">Boston Celtics</span>
-            <h3 class="card__nome">Regata Tatum #0 • Celtics</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.7 · 278 av.</div>
-            <p class="card__loja">Ajustar de Nike</p>
+            <span class="card__time">Buffalo Bills</span>
+            <h3 class="card__nome">Camisa Allen #17 • Bills</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.6 · 198 av.</div>
+            <p class="card__loja">Ajustar de Fanatics</p>
             <div class="card__rodape">
-              <span class="card__preco">R$ 329,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__midia midia--quadra">
-          <span class="etiqueta">Revelação</span>
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">San Antonio Spurs</span>
-            <h3 class="card__nome">Regata Wemby #1 • Spurs</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.9 · 412 av.</div>
-            <p class="card__loja">Ajustar de Nike</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 339,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card__midia midia--arena">
-          <span class="etiqueta">Ícone</span>
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Los Angeles Lakers</span>
-            <h3 class="card__nome">Regata Kobe #24 • Lakers Retrô</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 5.0 · 634 av.</div>
-            <p class="card__loja">Ajustar de Mitchell & Ness</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 449,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <span class="card__preco">R$ 419,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -201,13 +155,60 @@
           <div class="card__midia midia--retro">
           </div>
           <div class="card__corpo">
-            <span class="card__time">Los Angeles Lakers</span>
-            <h3 class="card__nome">Regata Magic #32 • Lakers Retrô</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.8 · 289 av.</div>
+            <span class="card__time">San Francisco 49ers</span>
+            <h3 class="card__nome">Camisa Purdy #13 • 49ers</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.5 · 174 av.</div>
+            <p class="card__loja">Ajustar de Nike</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 419,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--oval">
+          <span class="etiqueta">Oficial</span>
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Bola oficial</span>
+            <h3 class="card__nome">Bola Wilson The Duke • NFL</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.8 · 321 av.</div>
+            <p class="card__loja">Ajustar de Wilson</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 699,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--capacete">
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">Dallas Cowboys</span>
+            <h3 class="card__nome">Mini Capacete Cowboys • Riddell</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.6 · 142 av.</div>
+            <p class="card__loja">Ajustar de Riddell</p>
+            <div class="card__rodape">
+              <span class="card__preco">R$ 389,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card__midia midia--retro">
+          <span class="etiqueta">Ícone</span>
+          </div>
+          <div class="card__corpo">
+            <span class="card__time">New England Patriots</span>
+            <h3 class="card__nome">Camisa Brady #12 • Patriots Retrô</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★★</span> 5.0 · 587 av.</div>
             <p class="card__loja">Ajustar de Mitchell & Ness</p>
             <div class="card__rodape">
-              <span class="card__preco">R$ 429,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <span class="card__preco">R$ 499,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
@@ -217,25 +218,19 @@
           </div>
           <div class="card__corpo">
             <span class="card__time">Boné</span>
-            <h3 class="card__nome">Boné Snapback Lakers • New Era</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.5 · 312 av.</div>
+            <h3 class="card__nome">Boné Sideline Chiefs • New Era</h3>
+            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.4 · 133 av.</div>
             <p class="card__loja">Ajustar de New Era</p>
             <div class="card__rodape">
-              <span class="card__preco">R$ 179,90</span>
-              <a href="#" class="btn">Ver ofertas</a>
+              <span class="card__preco">R$ 189,90</span>
+              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
             </div>
           </div>
         </article>
       </section>
 
       <!-- Paginação -->
-      <nav class="paginacao" aria-label="Paginação">
-        <a href="#" class="desativada" aria-label="Anterior">←</a>
-        <a href="#" class="ativa">1</a>
-        <a href="#">2</a>
-        <a href="#">3</a>
-        <a href="#" aria-label="Próxima">→</a>
-      </nav>
+      <nav class="paginacao" aria-label="Paginação" aria-live="polite"></nav>
     </div>
   </main>
 
@@ -256,9 +251,9 @@
         <div>
           <h4>Sobre</h4>
           <ul>
-            <li><a href="#">Quem Somos</a></li>
-            <li><a href="#">Como Funciona</a></li>
-            <li><a href="#">Lojas Parceiras</a></li>
+            <li><a href="{% url 'Camisa12:sobre' %}">Quem Somos</a></li>
+            <li><a href="{% url 'Camisa12:como_funciona' %}">Como Funciona</a></li>
+            <li><a href="{% url 'Camisa12:lojas' %}">Lojas Parceiras</a></li>
             <li><a href="#">Blog Oficial</a></li>
           </ul>
         </div>
@@ -266,10 +261,10 @@
         <div>
           <h4>Categorias</h4>
           <ul>
-            <li><a href="futebol.html">Camisas Futebol</a></li>
-            <li><a href="nba.html">Camisas NBA</a></li>
-            <li><a href="nfl.html">Camisas NFL</a></li>
-            <li><a href="#">Chuteiras</a></li>
+            <li><a href="{% url 'Camisa12:futebol' %}">Camisas Futebol</a></li>
+            <li><a href="{% url 'Camisa12:nba' %}">Camisas NBA</a></li>
+            <li><a href="{% url 'Camisa12:nfl' %}">Camisas NFL</a></li>
+            <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
           </ul>
         </div>
 
@@ -297,6 +292,7 @@
     </div>
   </footer>
 
-  <script src="js/catalogo.js"></script>
+  <script src="{% static 'js/catalogo.js' %}"></script>
+  <script src="{% static 'js/carrinho.js' %}"></script>
 </body>
 </html>
