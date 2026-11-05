@@ -69,6 +69,7 @@ urlpatterns = [
     path("futebol/", TemplateView.as_view(template_name="futebol.html"), name="futebol"),
     path("nba/", TemplateView.as_view(template_name="nba.html"), name="nba"),
     path("nfl/", TemplateView.as_view(template_name="nfl.html"), name="nfl"),
+    path("chuteiras/", TemplateView.as_view(template_name="chuteiras.html"), name="chuteiras"),
     path("sobre/", TemplateView.as_view(template_name="sobre.html"), name="sobre"),
     path("lojas/", TemplateView.as_view(template_name="lojas.html"), name="lojas"),
     path("lancamento/", TemplateView.as_view(template_name="lancamento.html"), name="lancamento"),
