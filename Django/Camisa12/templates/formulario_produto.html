@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>{{ titulo }} | CAMISA 12</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #111;
+            color: #fff;
+        }
+
+        header {
+            background: #080808;
+            padding: 22px 5%;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .cartao {
+            background: #202020;
+            border: 1px solid #383838;
+            padding: 30px;
+            border-radius: 12px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        .descricao {
+            color: #bbb;
+            line-height: 1.5;
+        }
+
+        .campo {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px;
+            background: #303030;
+            border: 1px solid #555;
+            border-radius: 7px;
+            color: #fff;
+            font: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: 2px solid #2ecc71;
+            border-color: #2ecc71;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        .erro {
+            color: #ff8585;
+            font-size: 14px;
+            margin-top: 6px;
+        }
+
+        .ajuda {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-top: 6px;
+        }
+
+        .acoes {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        button {
+            padding: 13px 24px;
+            background: #2ecc71;
+            border: none;
+            border-radius: 7px;
+            color: #111;
+            font-weight: bold;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #27b864;
+        }
+
+        .cancelar {
+            display: inline-block;
+            padding: 13px 24px;
+            border: 1px solid #666;
+            border-radius: 7px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .cancelar:hover {
+            background: #333;
+        }
+
+        .aviso {
+            margin: 20px 0;
+            padding: 15px;
+            background: #303025;
+            border-left: 4px solid #e5a000;
+            color: #eee;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .cartao {
+                padding: 20px;
+            }
+
+            .acoes {
+                flex-direction: column;
+            }
+
+            button,
+            .cancelar {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>CAMISA 12</h1>
+</header>
+
+<main class="container">
+
+    <section class="cartao">
+
+        <h2>{{ titulo }}</h2>
+
+        <p class="descricao">
+            Preencha as informações do produto.
+            Os campos marcados com * são obrigatórios.
+        </p>
+
+        {% if produto %}
+            <div class="aviso">
+                Você está editando o anúncio:
+                <strong>{{ produto.nome }}</strong>
+            </div>
+        {% endif %}
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+            {% for error in form.non_field_errors %}
+                <p class="erro">{{ error }}</p>
+            {% endfor %}
+
+            {% for field in form %}
+
+                <div class="campo">
+
+                    <label for="{{ field.id_for_label }}">
+                        {{ field.label }}
+
+                        {% if field.field.required %}
+                            *
+                        {% endif %}
+                    </label>
+
+                    {{ field }}
+
+                    {% if field.help_text %}
+                        <small class="ajuda">
+                            {{ field.help_text }}
+                        </small>
+                    {% endif %}
+
+                    {% for error in field.errors %}
+                        <p class="erro">
+                            {{ error }}
+                        </p>
+                    {% endfor %}
+
+                </div>
+
+            {% endfor %}
+
+            <div class="aviso">
+                Confira o nome, o preço, a categoria e
+                o estado de conservação antes de salvar.
+            </div>
+
+            <div class="acoes">
+
+                <button type="submit">
+                    {{ texto_botao }}
+                </button>
+
+                <a class="cancelar"
+                   href="{% url 'Camisa12:meus_anuncios' %}">
+                    Cancelar
+                </a>
+
+            </div>
+
+        </form>
+
+    </section>
+
+</main>
+
+</body>
+</html>

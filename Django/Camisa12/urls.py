@@ -68,5 +68,23 @@ urlpatterns = [
         views.produto_detalhe,
         name="produto_detalhe"
     ),
+    #Área do vendedor
+    path(
+        "meus-anuncios/",
+        views.meus_anuncios,
+        name="meus_anuncios"
+    ),
+
+    path(
+        "cadastrar-produto/",
+        views.cadastrar_produto,
+        name="cadastrar_produto"
+    ),
+
+    path(
+        "editar-produto/<int:produto_id>/",
+        views.editar_produto,
+        name="editar_produto"
+    ),
 
 ]

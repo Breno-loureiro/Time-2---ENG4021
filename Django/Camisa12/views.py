@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from Camisa12.forms import CadastroUsuarioForm
+from Camisa12.forms import CadastroUsuarioForm, ProdutoForm
 from Camisa12.models import NotaConservacao, Time, Produto
 
 # Create your views here.
@@ -193,3 +193,112 @@ def produto_detalhe(request, produto_id):
         contexto
     )
     
+@login_required(login_url="Camisa12:login")
+def cadastrar_produto(request):
+
+    if request.method == "POST":
+        form = ProdutoForm(request.POST)
+
+        if form.is_valid():
+            produto = form.save(commit=False)
+
+            # O vendedor é sempre o usuário logado
+            produto.vendedor = request.user
+
+            produto.ativo = True
+            produto.save()
+
+            messages.success(
+                request,
+                "Produto cadastrado com sucesso!"
+            )
+
+            return redirect("Camisa12:meus_anuncios")
+
+    else:
+        form = ProdutoForm()
+
+    contexto = {
+        "form": form,
+        "titulo": "Cadastrar produto",
+        "texto_botao": "Cadastrar produto",
+    }
+
+    return render(
+        request,
+        "formulario_produto.html",
+        contexto
+    )
+
+@login_required(login_url="Camisa12:login")
+def meus_anuncios(request):
+
+    anuncios = Produto.objects.filter(
+        vendedor=request.user
+    ).select_related(
+        "time",
+        "tamanho",
+        "conservacao"
+    ).order_by("-criado_em")
+
+    total = anuncios.count()
+
+    ativos = anuncios.filter(
+        ativo=True
+    ).count()
+
+    inativos = total - ativos
+
+    contexto = {
+        "anuncios": anuncios,
+        "total": total,
+        "ativos": ativos,
+        "inativos": inativos,
+    }
+
+    return render(
+        request,
+        "meus_anuncios.html",
+        contexto
+    )
+
+@login_required(login_url="Camisa12:login")
+def editar_produto(request, produto_id):
+
+    produto = get_object_or_404(
+        Produto,
+        id=produto_id,
+        vendedor=request.user
+    )
+
+    if request.method == "POST":
+        form = ProdutoForm(
+            request.POST,
+            instance=produto
+        )
+
+        if form.is_valid():
+            form.save()
+
+            messages.success(
+                request,
+                "Anúncio atualizado com sucesso!"
+            )
+
+            return redirect("Camisa12:meus_anuncios")
+
+    else:
+        form = ProdutoForm(instance=produto)
+
+    contexto = {
+        "form": form,
+        "titulo": "Editar anúncio",
+        "texto_botao": "Salvar alterações",
+        "produto": produto,
+    }
+
+    return render(
+        request,
+        "formulario_produto.html",
+        contexto
+    )
