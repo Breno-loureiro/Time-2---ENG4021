@@ -76,5 +76,23 @@ urlpatterns = [
     path("lojas/", TemplateView.as_view(template_name="lojas.html"), name="lojas"),
     path("lancamento/", TemplateView.as_view(template_name="lancamento.html"), name="lancamento"),
     path("carrinho/", TemplateView.as_view(template_name="carrinho.html"), name="carrinho"),
+    #Área do vendedor
+    path(
+        "meus-anuncios/",
+        views.meus_anuncios,
+        name="meus_anuncios"
+    ),
+
+    path(
+        "cadastrar-produto/",
+        views.cadastrar_produto,
+        name="cadastrar_produto"
+    ),
+
+    path(
+        "editar-produto/<int:produto_id>/",
+        views.editar_produto,
+        name="editar_produto"
+    ),
 
 ]
