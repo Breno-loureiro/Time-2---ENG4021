@@ -1083,3 +1083,22 @@ button, input, select { font: inherit; }
     font-size: 13px;
   }
 }
+
+
+/* Página Guia de Tamanhos */
+.hero--guia {
+  background-image:
+    linear-gradient(90deg, rgba(10,10,10,.9) 0%, rgba(10,10,10,.6) 60%, rgba(10,10,10,.4) 100%),
+    radial-gradient(ellipse at 70% 45%, #1d5a52 0%, #0f302c 45%, #061211 100%);
+}
+
+.guia__tabela td strong {
+  color: var(--verde);
+  font-size: 16px;
+}
+
+.guia__obs {
+  color: var(--texto-suave);
+  font-size: 13px;
+  margin-top: 10px;
+}
