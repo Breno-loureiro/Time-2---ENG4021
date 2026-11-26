@@ -1,0 +1,214 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guia de Tamanhos | CAMISA 12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a href="{% url 'Camisa12:futebol' %}" class="logo">
+        <div class="logo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linejoin="round"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3c0 2-1.8 3-4 3S8 5 8 3z"/></svg></div>
+        <div>
+          <span class="logo__nome">CAMISA 12</span>
+          <span class="logo__slogan">A VOZ DA TORCIDA</span>
+        </div>
+      </a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'Camisa12:minha_conta' %}" class="perfil-icone" aria-label="Meu perfil" title="Meu perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </a>
+      {% endif %}
+
+      <nav>
+        <ul class="menu">
+          <li><a href="{% url 'Camisa12:home' %}">Início</a></li>
+          <li><a href="{% url 'Camisa12:futebol' %}">Camisas de Futebol</a></li>
+          <li><a href="{% url 'Camisa12:nba' %}">NBA</a></li>
+          <li><a href="{% url 'Camisa12:nfl' %}">NFL</a></li>
+          <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+          <li><a href="{% url 'Camisa12:acessorios' %}">Acessórios</a></li>
+          <li><a href="{% url 'Camisa12:lojas' %}" >Lojas</a></li>
+        </ul>
+      </nav>
+
+      <form class="busca" action="#">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input type="search" placeholder="Buscar produtos, times, marcas...">
+      </form>
+
+      <div class="acoes">
+        {% if not user.is_authenticated %}
+        <a href="{% url 'Camisa12:login' %}" class="acoes__entrar">Entrar</a>
+        <a href="{% url 'Camisa12:cadastro' %}" class="btn">Criar conta</a>
+        {% endif %}
+        <a href="#" class="carrinho" aria-label="Carrinho">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          <span class="carrinho__qtd">3</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="hero hero--guia">
+    <div class="container hero__inner">
+      <div class="hero__texto">
+        <span class="selo">Guia de Tamanhos</span>
+        <h1 class="hero__titulo">Acerte o tamanho<br>da sua camisa</h1>
+        <p class="hero__descricao">Compare as medidas da tabela com uma camisa que você já tem e compre sem medo de errar.</p>
+      </div>
+    </div>
+  </section>
+
+  <main class="catalogo">
+    <div class="container">
+      <div class="lojas__topo">
+        <div>
+          <h2 class="catalogo__titulo">Tabela de medidas</h2>
+          <p class="catalogo__total">Medidas da camisa versão torcedor, com a peça esticada.</p>
+        </div>
+        <span class="lojas__contador">5 tamanhos</span>
+      </div>
+
+      <table class="trocas__tabela guia__tabela">
+        <thead>
+          <tr>
+            <th>Tamanho</th>
+            <th>Largura</th>
+            <th>Altura</th>
+            <th>Altura da pessoa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>P</strong></td>
+            <td>50 cm</td>
+            <td>70 cm</td>
+            <td>1,60 a 1,70 m</td>
+          </tr>
+          <tr>
+            <td><strong>M</strong></td>
+            <td>53 cm</td>
+            <td>72 cm</td>
+            <td>1,68 a 1,76 m</td>
+          </tr>
+          <tr>
+            <td><strong>G</strong></td>
+            <td>56 cm</td>
+            <td>74 cm</td>
+            <td>1,74 a 1,82 m</td>
+          </tr>
+          <tr>
+            <td><strong>GG</strong></td>
+            <td>59 cm</td>
+            <td>76 cm</td>
+            <td>1,80 a 1,88 m</td>
+          </tr>
+          <tr>
+            <td><strong>XGG</strong></td>
+            <td>62 cm</td>
+            <td>78 cm</td>
+            <td>1,86 a 1,94 m</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="guia__obs">As medidas podem variar até 2 cm de uma marca para outra.</p>
+
+      <h2 class="catalogo__titulo trocas__subtitulo">Como medir</h2>
+      <section class="lojas">
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Pegue uma camisa que veste bem</h3><span class="verificado">Passo 1</span></div>
+          <p class="loja__tipo">Use uma camiseta sua que você gosta do caimento como referência.</p>
+        </article>
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Meça a largura</h3><span class="verificado">Passo 2</span></div>
+          <p class="loja__tipo">Com a camisa esticada numa mesa, meça de uma axila até a outra, em linha reta.</p>
+        </article>
+        <article class="card loja">
+          <div class="loja__topo"><h3 class="card__nome">Meça a altura</h3><span class="verificado">Passo 3</span></div>
+          <p class="loja__tipo">Meça do ponto mais alto do ombro, junto à gola, até a barra de baixo.</p>
+        </article>
+      </section>
+
+      <h2 class="catalogo__titulo trocas__subtitulo">Dicas</h2>
+      <ul class="trocas__lista">
+        <li><strong>Versão jogador:</strong> é mais justa ao corpo. Se gosta de camisa mais solta, escolha um tamanho acima.</li>
+        <li><strong>Camisas retrô:</strong> os modelos antigos costumam ser mais largos e mais curtos que os atuais.</li>
+        <li><strong>Ficou entre dois tamanhos?</strong> Prefira o maior. Camisa grande dá para usar, apertada não.</li>
+        <li><strong>Camisas usadas:</strong> confira as medidas que o vendedor informa no anúncio, porque a peça pode ter encolhido.</li>
+      </ul>
+
+      <div class="ajuda__final">
+        <p>Ainda em dúvida sobre o tamanho?</p>
+        <a href="{% url 'Camisa12:fale_conosco' %}" class="btn">Fale conosco</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape__grade">
+        <div>
+          <div class="rodape__logo"><span></span>CAMISA 12</div>
+          <p class="rodape__sobre">O maior portal agregador e comparador de camisas e artigos esportivos do Brasil. Encontre o item certo com segurança e pelo menor preço.</p>
+          <div class="redes">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Sobre</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:sobre' %}">Quem Somos</a></li>
+            <li><a href="{% url 'Camisa12:como_funciona' %}">Como Funciona</a></li>
+            <li><a href="{% url 'Camisa12:lojas' %}">Lojas Parceiras</a></li>
+            <li><a href="#">Blog Oficial</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:futebol' %}">Camisas Futebol</a></li>
+            <li><a href="{% url 'Camisa12:nba' %}">Camisas NBA</a></li>
+            <li><a href="{% url 'Camisa12:nfl' %}">Camisas NFL</a></li>
+            <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Suporte</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:fale_conosco' %}">Fale Conosco</a></li>
+            <li><a href="{% url 'Camisa12:central_ajuda' %}">Central de Ajuda</a></li>
+            <li><a href="{% url 'Camisa12:trocas_devolucoes' %}">Trocas e Devoluções</a></li>
+            <li><a href="{% url 'Camisa12:guia_tamanhos' %}">Guia de Tamanhos</a></li>
+            <li><a href="{% url 'Camisa12:termos_uso' %}">Termos de Uso</a></li>
+          </ul>
+        </div>
+
+        <div class="newsletter">
+          <h4>Receba ofertas exclusivas</h4>
+          <p>Alertas de descontos das maiores lojas esportivas do Brasil.</p>
+          <form action="#">
+            <input type="email" placeholder="Seu melhor e-mail...">
+            <button type="submit" class="btn">OK</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="rodape__copy">© 2026 CAMISA 12 · Projeto acadêmico PUC-Rio</p>
+    </div>
+  </footer>
+
+</body>
+</html>
