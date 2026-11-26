@@ -74,14 +74,14 @@
   <main class="catalogo" id="catalogo">
     <div class="container">
       <h2 class="catalogo__titulo">Chuteiras</h2>
-      <p class="catalogo__total">8 produtos encontrados</p>
+      <p class="catalogo__total">{{ total }} produtos encontrados</p>
 
       <!-- Filtros -->
-      <form class="filtros" action="#">
+      <form class="filtros" method="GET" action="{% url 'Camisa12:chuteiras' %}">
         <svg class="filtros__icone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M7 12h10M10 17h4"/></svg>
         <label class="filtros__busca">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
-          <input type="search" placeholder="Buscar...">
+          <input type="search" name="busca" value="{{ busca }}" placeholder="Buscar...">
         </label>
         <select aria-label="Tipo de campo">
           <option>Tipo de campo</option>
@@ -108,133 +108,68 @@
             <option>Melhor avaliados</option>
           </select>
         </div>
+        <button type="submit" class="btn">Buscar</button>
       </form>
 
       <!-- Grade de produtos -->
       <section class="produtos">
-        <article class="card">
-          <div class="card__midia midia--gramado">
-          <span class="etiqueta">Mais vendida</span>
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Nike</span>
-            <h3 class="card__nome">Chuteira Mercurial Vapor 16 • Campo</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.8 · 512 av.</div>
-            <p class="card__loja">Vendido por Nike</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 899,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
-            </div>
-          </div>
-        </article>
+        {% for produto in produtos %}
 
-        <article class="card">
-          <div class="card__midia midia--campo">
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Adidas</span>
-            <h3 class="card__nome">Chuteira Predator Elite • Campo</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.7 · 388 av.</div>
-            <p class="card__loja">Vendido por Adidas</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 949,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
-            </div>
-          </div>
-        </article>
+    <article class="card">
 
-        <article class="card">
-          <div class="card__midia midia--estadio">
-          <span class="etiqueta">Lançamento</span>
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Puma</span>
-            <h3 class="card__nome">Chuteira Future 8 Pro • Campo</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.6 · 142 av.</div>
-            <p class="card__loja">Vendido por Centauro</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 799,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
-            </div>
-          </div>
-        </article>
+        <div class="card__midia midia--gramado">
+            {% if produto.imagem %}
+                <img
+                    src="{{ produto.imagem }}"
+                    alt="{{ produto.nome }}"
+                    loading="lazy"
+                    style="width:100%; height:100%; object-fit:cover;"
+                >
+            {% endif %}
+        </div>
 
-        <article class="card">
-          <div class="card__midia midia--gramado">
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Nike</span>
-            <h3 class="card__nome">Chuteira Phantom Luna II • Society</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.5 · 276 av.</div>
-            <p class="card__loja">Vendido por Netshoes</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 549,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
-            </div>
-          </div>
-        </article>
+        <div class="card__corpo">
 
-        <article class="card">
-          <div class="card__midia midia--campo">
-          <span class="etiqueta">Destaque</span>
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Adidas</span>
-            <h3 class="card__nome">Chuteira Copa Pure 3 • Society</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.8 · 301 av.</div>
-            <p class="card__loja">Vendido por Adidas</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 499,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
-            </div>
-          </div>
-        </article>
+            <span class="card__time">
+                {{ produto.marca|default:"Chuteiras" }}
+            </span>
 
-        <article class="card">
-          <div class="card__midia midia--quadra">
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Umbro</span>
-            <h3 class="card__nome">Chuteira Pro 5 Bump • Futsal</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.4 · 198 av.</div>
-            <p class="card__loja">Vendido por Centauro</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 299,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
-            </div>
-          </div>
-        </article>
+            <h3 class="card__nome">
+                {{ produto.nome }}
+            </h3>
 
-        <article class="card">
-          <div class="card__midia midia--arena">
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Mizuno</span>
-            <h3 class="card__nome">Chuteira Morelia Neo IV • Campo</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★★</span> 4.9 · 96 av.</div>
-            <p class="card__loja">Vendido por Mizuno</p>
-            <div class="card__rodape">
-              <span class="card__preco">R$ 1.099,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
-            </div>
-          </div>
-        </article>
+            <p class="card__loja">
+                Vendido por {{ produto.vendedor.username }}
+            </p>
 
-        <article class="card">
-          <div class="card__midia midia--estadio">
-          <span class="etiqueta">Oferta</span>
-          </div>
-          <div class="card__corpo">
-            <span class="card__time">Penalty</span>
-            <h3 class="card__nome">Chuteira RX Locker • Futsal</h3>
-            <div class="avaliacao"><span class="estrelas">★★★★☆</span> 4.3 · 154 av.</div>
-            <p class="card__loja">Vendido por Netshoes</p>
+            {% if produto.conservacao %}
+                <p class="card__loja">
+                    Conservação: {{ produto.conservacao.titulo }}
+                </p>
+            {% endif %}
+
             <div class="card__rodape">
-              <span class="card__preco">R$ 229,90</span>
-              <button type="button" class="btn btn--adicionar-carrinho" aria-label="Adicionar produto ao carrinho">Adicionar</button>
+
+                <span class="card__preco">
+                    R$ {{ produto.preco|floatformat:2 }}
+                </span>
+
+                <a href="{% url 'Camisa12:produto_detalhe' produto.id %}"
+                   class="btn">
+                    Ver oferta
+                </a>
+
             </div>
-          </div>
-        </article>
+
+        </div>
+
+    </article>
+
+{% empty %}
+
+    <p>Nenhuma chuteira encontrada.</p>
+
+{% endfor %}
       </section>
 
       <!-- Paginação -->

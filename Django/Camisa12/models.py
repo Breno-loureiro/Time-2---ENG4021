@@ -99,6 +99,8 @@ class Produto(models.Model):
         ("FUTEBOL", "Futebol"),
         ("NBA", "NBA"),
         ("NFL", "NFL"),
+        ("CHUTEIRAS", "Chuteiras"),
+        ("ACESSORIOS", "Acessórios"),
     ]
 
     id = models.AutoField(
