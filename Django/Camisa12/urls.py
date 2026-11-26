@@ -69,8 +69,8 @@ urlpatterns = [
     path("futebol/", views.catalogo_futebol, name="futebol"),
     path("nba/", views.catalogo_nba, name="nba"),
     path("nfl/", views.catalogo_nfl, name="nfl"),
-    path("chuteiras/", TemplateView.as_view(template_name="chuteiras.html"), name="chuteiras"),
-    path("acessorios/", TemplateView.as_view(template_name="acessorios.html"), name="acessorios"),
+    path("chuteiras/", views.catalogo_chuteiras, name="chuteiras"),
+    path("acessorios/", views.catalogo_acessorios, name="acessorios"),
     path("sobre/", TemplateView.as_view(template_name="sobre.html"), name="sobre"),
     path("como-funciona/", TemplateView.as_view(template_name="como_funciona.html"), name="como_funciona"),
     path("trocas-e-devolucoes/", TemplateView.as_view(template_name="trocas_devolucoes.html"), name="trocas_devolucoes"),
@@ -98,4 +98,9 @@ urlpatterns = [
         name="editar_produto"
     ),
 
+    path(
+        "termos-de-uso/",
+        views.termos_uso,
+        name="termos_uso"
+    ),
 ]

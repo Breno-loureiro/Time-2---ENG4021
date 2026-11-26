@@ -391,3 +391,54 @@ def catalogo_nfl(request):
     }
 
     return render(request, "nfl.html", contexto)
+
+def catalogo_chuteiras(request):
+    busca = request.GET.get("busca", "").strip()
+
+    produtos = Produto.objects.filter(
+        categoria="CHUTEIRAS",
+        ativo=True
+    ).select_related(
+        "time",
+        "vendedor"
+    ).order_by("-criado_em")
+
+    if busca:
+        produtos = produtos.filter(
+            nome__icontains=busca
+        )
+
+    contexto = {
+        "produtos": produtos,
+        "total": produtos.count(),
+        "busca": busca,
+    }
+
+    return render(request, "chuteiras.html", contexto)
+
+def catalogo_acessorios(request):
+    busca = request.GET.get("busca", "").strip()
+
+    produtos = Produto.objects.filter(
+        categoria="ACESSORIOS",
+        ativo=True
+    ).select_related(
+        "time",
+        "vendedor"
+    ).order_by("-criado_em")
+
+    if busca:
+        produtos = produtos.filter(
+            nome__icontains=busca
+        )
+
+    contexto = {
+        "produtos": produtos,
+        "total": produtos.count(),
+        "busca": busca,
+    }
+
+    return render(request, "acessorios.html", contexto)
+
+def termos_uso(request):
+    return render(request, 'termos_uso.html')
