@@ -1,0 +1,161 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Termos de Uso | CAMISA 12</title>
+
+    <link rel="stylesheet" href="{% static 'css/termos_uso.css' %}">
+</head>
+
+<body>
+
+    <header class="cabecalho">
+        <div class="nav-container">
+
+            <a href="{% url 'Camisa12:home' %}" class="logo">
+                CAMISA 12
+            </a>
+
+            <nav>
+                <a href="{% url 'Camisa12:home' %}">Início</a>
+                <a href="{% url 'Camisa12:futebol' %}">Futebol</a>
+                <a href="{% url 'Camisa12:nba' %}">NBA</a>
+                <a href="{% url 'Camisa12:nfl' %}">NFL</a>
+                <a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a>
+                <a href="{% url 'Camisa12:acessorios' %}">Acessórios</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <section class="banner">
+        <h1>Termos de Uso</h1>
+        <p>Conheça as condições de utilização do CAMISA 12.</p>
+    </section>
+
+    <main class="container">
+
+        <section class="termo">
+            <h2>1. Sobre o CAMISA 12</h2>
+            <p>
+                O CAMISA 12 é uma plataforma de artigos esportivos
+                desenvolvida para facilitar a busca, comparação e
+                avaliação de produtos e vendedores.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>2. Aceitação dos termos</h2>
+            <p>
+                Ao utilizar a plataforma, o usuário declara estar
+                ciente das condições de utilização apresentadas
+                nesta página.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>3. Cadastro de usuários</h2>
+            <p>
+                O usuário deve fornecer informações verdadeiras
+                durante o cadastro e manter seus dados atualizados.
+                A proteção de suas credenciais de acesso é de sua
+                responsabilidade.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>4. Cadastro de produtos</h2>
+            <p>
+                Os vendedores devem apresentar informações corretas
+                sobre os produtos anunciados, incluindo preço,
+                tamanho, estado de conservação, autenticidade
+                e disponibilidade.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>5. Compras e vendas</h2>
+            <p>
+                Os usuários devem verificar as informações dos
+                produtos e as condições oferecidas pelos vendedores
+                antes de realizar uma negociação.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>6. Avaliações e comentários</h2>
+            <p>
+                As avaliações devem representar experiências reais.
+                Não são permitidos comentários ofensivos,
+                discriminatórios, fraudulentos ou enganosos.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>7. Condutas proibidas</h2>
+
+            <ul>
+                <li>Publicar informações falsas ou enganosas.</li>
+                <li>Realizar fraudes ou atividades ilegais.</li>
+                <li>Anunciar produtos ilícitos.</li>
+                <li>Desrespeitar outros usuários da plataforma.</li>
+                <li>Tentar acessar contas sem autorização.</li>
+                <li>Comprometer a segurança ou o funcionamento do site.</li>
+            </ul>
+        </section>
+
+        <section class="termo">
+            <h2>8. Trocas e devoluções</h2>
+            <p>
+                As condições de troca e devolução devem respeitar
+                a legislação aplicável e as políticas informadas
+                ao consumidor.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>9. Privacidade e proteção de dados</h2>
+            <p>
+                O tratamento de dados pessoais deve respeitar
+                a Lei Geral de Proteção de Dados (LGPD) e os
+                direitos dos usuários.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>10. Alterações dos termos</h2>
+            <p>
+                Estes termos poderão ser atualizados conforme
+                a evolução da plataforma e das suas funcionalidades.
+            </p>
+        </section>
+
+        <section class="termo">
+            <h2>11. Contato e suporte</h2>
+            <p>
+                Em caso de dúvidas, o usuário poderá consultar
+                os canais de atendimento disponibilizados
+                pelo CAMISA 12.
+            </p>
+        </section>
+
+        <div class="voltar">
+            <a href="{% url 'Camisa12:home' %}" class="botao">
+                Voltar para o início
+            </a>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>CAMISA 12 — A voz da torcida.</p>
+        <p>Projeto acadêmico desenvolvido na PUC-Rio.</p>
+    </footer>
+
+</body>
+</html>

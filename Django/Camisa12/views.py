@@ -439,3 +439,6 @@ def catalogo_acessorios(request):
     }
 
     return render(request, "acessorios.html", contexto)
+
+def termos_uso(request):
+    return render(request, 'termos_uso.html')

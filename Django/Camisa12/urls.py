@@ -98,4 +98,9 @@ urlpatterns = [
         name="editar_produto"
     ),
 
+    path(
+        "termos-de-uso/",
+        views.termos_uso,
+        name="termos_uso"
+    ),
 ]
