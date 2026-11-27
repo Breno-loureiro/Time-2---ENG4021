@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from Camisa12.forms import CadastroUsuarioForm, ProdutoForm
-from Camisa12.models import NotaConservacao, Time, Produto
+from django.db.models import Avg, Count
+from Camisa12.forms import CadastroUsuarioForm, ProdutoForm, AvaliacaoForm
+from Camisa12.models import NotaConservacao, Time, Produto, Avaliacao, Oferta
 
 # Create your views here.
 
@@ -183,8 +184,60 @@ def produto_detalhe(request, produto_id):
         ativo=True
     )
 
+    # Comparação de preços: ofertas das lojas, da mais barata para a mais cara
+    ofertas = list(produto.ofertas.select_related("loja"))
+    ofertas.sort(key=lambda oferta: oferta.total)
+    melhor_oferta = ofertas[0] if ofertas else None
+    economia = None
+    if len(ofertas) > 1:
+        economia = ofertas[-1].total - ofertas[0].total
+
+    # Avaliações do produto
+    avaliacoes = produto.avaliacoes.select_related("usuario")
+    resumo_produto = avaliacoes.aggregate(media=Avg("nota"), total=Count("id"))
+
+    # Reputação do vendedor: média das avaliações de todos os produtos dele
+    resumo_vendedor = Avaliacao.objects.filter(
+        produto__vendedor=produto.vendedor
+    ).aggregate(media=Avg("nota"), total=Count("id"))
+
+    # Formulário de avaliação (só para quem está logado)
+    minha_avaliacao = None
+    if request.user.is_authenticated:
+        minha_avaliacao = avaliacoes.filter(usuario=request.user).first()
+
+    if request.method == "POST":
+        if not request.user.is_authenticated:
+            messages.error(request, "Entre na sua conta para avaliar.")
+            return redirect("Camisa12:login")
+
+        if produto.vendedor == request.user:
+            messages.error(request, "Você não pode avaliar o próprio anúncio.")
+            return redirect("Camisa12:produto_detalhe", produto_id=produto.id)
+
+        form = AvaliacaoForm(request.POST, instance=minha_avaliacao)
+        if form.is_valid():
+            avaliacao = form.save(commit=False)
+            avaliacao.produto = produto
+            avaliacao.usuario = request.user
+            avaliacao.save()
+            messages.success(request, "Avaliação salva. Obrigado!")
+            return redirect("Camisa12:produto_detalhe", produto_id=produto.id)
+    else:
+        form = AvaliacaoForm(instance=minha_avaliacao)
+
     contexto = {
         "produto": produto,
+        "ofertas": ofertas,
+        "melhor_oferta": melhor_oferta,
+        "economia": economia,
+        "avaliacoes": avaliacoes,
+        "media_produto": resumo_produto["media"],
+        "total_avaliacoes": resumo_produto["total"],
+        "media_vendedor": resumo_vendedor["media"],
+        "total_avaliacoes_vendedor": resumo_vendedor["total"],
+        "form": form,
+        "minha_avaliacao": minha_avaliacao,
     }
 
     return render(
@@ -192,7 +245,7 @@ def produto_detalhe(request, produto_id):
         "produto_detalhe.html",
         contexto
     )
-    
+
 @login_required(login_url="Camisa12:login")
 def cadastrar_produto(request):
 
@@ -442,3 +495,42 @@ def catalogo_acessorios(request):
 
 def termos_uso(request):
     return render(request, 'termos_uso.html')
+
+
+def oferta_detalhe(request, oferta_id):
+
+    oferta = get_object_or_404(
+        Oferta.objects.select_related("produto", "produto__time", "loja"),
+        id=oferta_id,
+        produto__ativo=True
+    )
+    produto = oferta.produto
+
+    # As outras lojas que vendem o mesmo produto, para comparar
+    outras = list(
+        produto.ofertas.select_related("loja").exclude(id=oferta.id)
+    )
+    todas = sorted(outras + [oferta], key=lambda o: o.total)
+    posicao = todas.index(oferta) + 1
+    diferenca = oferta.total - todas[0].total
+
+    # Outros produtos dessa mesma loja
+    mais_da_loja = oferta.loja.ofertas.select_related("produto").filter(
+        produto__ativo=True
+    ).exclude(produto=produto)[:4]
+
+    contexto = {
+        "oferta": oferta,
+        "produto": produto,
+        "outras": sorted(outras, key=lambda o: o.total),
+        "posicao": posicao,
+        "total_ofertas": len(todas),
+        "diferenca": diferenca,
+        "mais_da_loja": mais_da_loja,
+    }
+
+    return render(
+        request,
+        "oferta_detalhe.html",
+        contexto
+    )

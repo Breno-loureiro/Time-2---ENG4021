@@ -104,4 +104,10 @@ urlpatterns = [
         views.termos_uso,
         name="termos_uso"
     ),
+
+    path(
+        "ofertas/<int:oferta_id>/",
+        views.oferta_detalhe,
+        name="oferta_detalhe"
+    ),
 ]

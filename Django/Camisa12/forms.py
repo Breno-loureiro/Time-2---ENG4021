@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
-from Camisa12.models import Produto
+from Camisa12.models import Produto, Avaliacao
 
 
 class CadastroUsuarioForm(UserCreationForm):
@@ -122,3 +122,24 @@ class ProdutoForm(forms.ModelForm):
             )
 
         return ano
+
+class AvaliacaoForm(forms.ModelForm):
+    class Meta:
+        model = Avaliacao
+        fields = ["nota", "comentario"]
+        labels = {
+            "nota": "Sua nota",
+            "comentario": "Comentário (opcional)",
+        }
+        widgets = {
+            "nota": forms.RadioSelect,
+            "comentario": forms.Textarea(attrs={
+                "rows": 3,
+                "placeholder": "Conte como foi sua experiência com o produto e o vendedor",
+            }),
+        }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Tira a opção vazia "---------" dos botões de nota
+        self.fields["nota"].choices = Avaliacao.NOTAS
