@@ -121,6 +121,7 @@
     aplicarFiltros();
     catalogo.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
+    return botao;
     }
 
   function renderizarPaginacao(totalPaginas) {
