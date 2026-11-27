@@ -1,0 +1,230 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ produto.nome }} na {{ oferta.loja.nome }} | CAMISA 12</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/produto_detalhe.css' %}">
+</head>
+<body data-categoria="{{ produto.get_categoria_display }}">
+
+  <!-- ===== HEADER ===== -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="{% url 'Camisa12:home' %}" class="logo">
+        <div class="logo__icone"><svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linejoin="round"><path d="M8 3 3 6l2 5 2-1v11h10V10l2 1 2-5-5-3c0 2-1.8 3-4 3S8 5 8 3z"/></svg></div>
+        <div>
+          <span class="logo__nome">CAMISA 12</span>
+          <span class="logo__slogan">A VOZ DA TORCIDA</span>
+        </div>
+      </a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'Camisa12:minha_conta' %}" class="perfil-icone" aria-label="Meu perfil" title="Meu perfil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#0b0b0b" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </a>
+      {% endif %}
+
+      <nav>
+        <ul class="menu">
+        <li><a href="{% url 'Camisa12:home' %}">Início</a></li>
+        <li><a href="{% url 'Camisa12:futebol' %}">Camisas de Futebol</a></li>
+        <li><a href="{% url 'Camisa12:nba' %}">NBA</a></li>
+        <li><a href="{% url 'Camisa12:nfl' %}">NFL</a></li>
+        <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+        <li><a href="{% url 'Camisa12:acessorios' %}">Acessórios</a></li>
+        <li><a href="{% url 'Camisa12:lojas' %}">Lojas</a></li>
+        </ul>
+      </nav>
+
+      <form class="busca" method="GET" action="{% url 'Camisa12:futebol' %}">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <input type="search" name="busca" placeholder="Buscar produtos, times, marcas...">
+      </form>
+
+      
+<div class="acoes">
+  <a href="{% url 'Camisa12:meus_anuncios' %}"
+     class="acoes__entrar">Meus anúncios</a>
+  {% if not user.is_authenticated %}
+  <a href="{% url 'Camisa12:login' %}" class="acoes__entrar">Entrar</a>
+  <a href="{% url 'Camisa12:cadastro' %}" class="btn">Criar conta</a>
+  {% endif %}
+  <a href="{% url 'Camisa12:carrinho' %}" class="carrinho" aria-label="Abrir carrinho">
+    <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linejoin="round">
+      <path d="M5 8h14l-1 13H6L5 8z"/>
+      <path d="M9 9V6a3 3 0 0 1 6 0v3"/>
+    </svg>
+    <span class="carrinho__qtd" aria-label="0 itens no carrinho">0</span>
+  </a>
+</div>
+
+    </div>
+  </header>
+
+  <main class="container pd">
+
+    <a href="{% url 'Camisa12:produto_detalhe' produto.id %}" class="pd__voltar">← Voltar para o produto</a>
+
+    <section class="pd__topo card of__card">
+      <div class="pd__foto">
+        {% if oferta.foto %}
+          <a href="{{ oferta.foto }}" target="_blank" rel="noopener" title="Abrir foto em tamanho real" class="of__foto-link">
+            <img src="{{ oferta.foto }}" alt="{{ produto.nome }} na {{ oferta.loja.nome }}">
+          </a>
+        {% else %}
+          <span class="pd__foto-vazia">12</span>
+        {% endif %}
+      </div>
+
+      <div class="pd__info">
+        <span class="selo">Oferta · {{ produto.get_categoria_display }}{% if produto.time %} · {{ produto.time.nome }}{% endif %}</span>
+        <h1 class="pd__titulo">{{ produto.nome }}</h1>
+        <span class="card__nome" hidden>{{ produto.nome }} ({{ oferta.loja.nome }})</span>
+        <span class="card__time" hidden>{% if produto.time %}{{ produto.time.nome }}{% endif %}</span>
+
+        <div class="of__loja-info">
+          <span class="pd__suave">Vendido por</span>
+          <strong>{{ oferta.loja.nome }}</strong>
+          {% if oferta.loja.verificada %}<span class="verificado">Verificada</span>{% endif %}
+        </div>
+        {% if oferta.loja.especialidade %}
+          <p class="pd__suave" style="margin-bottom:18px;">Especialidade da loja: {{ oferta.loja.especialidade }}</p>
+        {% endif %}
+
+        <div class="pd__preco-caixa">
+          <span class="pd__suave">Preço nesta loja</span>
+          <strong class="pd__preco card__preco">R$ {{ oferta.preco|floatformat:2 }}</strong>
+
+          <div class="of__contas">
+            <div><span>Produto</span><span>R$ {{ oferta.preco|floatformat:2 }}</span></div>
+            <div><span>Frete</span><span>{% if oferta.frete %}R$ {{ oferta.frete|floatformat:2 }}{% else %}Grátis{% endif %}</span></div>
+            <div><span>Total</span><span>R$ {{ oferta.total|floatformat:2 }}</span></div>
+          </div>
+
+          {% if total_ofertas > 1 %}
+            {% if posicao == 1 %}
+              <span class="of__ranking of__ranking--melhor">Melhor preço entre {{ total_ofertas }} lojas</span>
+            {% else %}
+              <span class="of__ranking of__ranking--outra">{{ posicao }}º menor preço entre {{ total_ofertas }} lojas · R$ {{ diferenca|floatformat:2 }} acima da mais barata</span>
+            {% endif %}
+          {% endif %}
+
+          <div class="of__botoes">
+            <button type="button" class="btn pd__btn btn--adicionar-carrinho">Adicionar ao carrinho</button>
+            {% if oferta.link %}
+              <a href="{{ oferta.link }}" target="_blank" rel="noopener" class="oferta__link">Ir ao site da loja ↗</a>
+            {% elif oferta.loja.site %}
+              <a href="{{ oferta.loja.site }}" target="_blank" rel="noopener" class="oferta__link">Ir ao site da loja ↗</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <dl class="pd__ficha">
+          {% if produto.marca %}<div><dt>Marca</dt><dd>{{ produto.marca }}</dd></div>{% endif %}
+          {% if produto.modelo %}<div><dt>Modelo</dt><dd>{{ produto.modelo }}</dd></div>{% endif %}
+          {% if produto.ano %}<div><dt>Ano</dt><dd>{{ produto.ano }}</dd></div>{% endif %}
+          {% if produto.tamanho %}<div><dt>Tamanho</dt><dd>{{ produto.tamanho.nome }}</dd></div>{% endif %}
+          {% if produto.conservacao %}<div><dt>Conservação</dt><dd>{{ produto.conservacao.nota }}/5 · {{ produto.conservacao.titulo }}</dd></div>{% endif %}
+        </dl>
+      </div>
+    </section>
+
+    {% if outras %}
+    <section class="pd__bloco">
+      <h2 class="pd__subtitulo">O mesmo produto em outras lojas</h2>
+      <div class="of__grade">
+        {% for outra in outras %}
+          <a href="{% url 'Camisa12:oferta_detalhe' outra.id %}" class="of__mini">
+            {% if outra.foto %}<img src="{{ outra.foto }}" alt="{{ produto.nome }} na {{ outra.loja.nome }}" class="of__mini-foto">{% endif %}
+            <strong>{{ outra.loja.nome }}</strong>
+            <b>R$ {{ outra.preco|floatformat:2 }}</b>
+            <span class="pd__suave">{% if outra.frete %}+ R$ {{ outra.frete|floatformat:2 }} frete{% else %}Frete grátis{% endif %}</span>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+    {% if mais_da_loja %}
+    <section class="pd__bloco">
+      <h2 class="pd__subtitulo">Mais da {{ oferta.loja.nome }}</h2>
+      <div class="of__grade">
+        {% for item in mais_da_loja %}
+          <a href="{% url 'Camisa12:oferta_detalhe' item.id %}" class="of__mini">
+            {% if item.foto %}<img src="{{ item.foto }}" alt="{{ item.produto.nome }}" class="of__mini-foto">{% endif %}
+            <strong>{{ item.produto.nome }}</strong>
+            <b>R$ {{ item.preco|floatformat:2 }}</b>
+          </a>
+        {% endfor %}
+      </div>
+    </section>
+    {% endif %}
+
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <div class="rodape__grade">
+        <div>
+          <div class="rodape__logo"><span></span>CAMISA 12</div>
+          <p class="rodape__sobre">O maior portal agregador e comparador de camisas e artigos esportivos do Brasil. Encontre o item certo com segurança e pelo menor preço.</p>
+          <div class="redes">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="#fff"><path d="M8 5v14l11-7z"/></svg></a>
+            <a href="#" aria-label="X"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><circle cx="12" cy="12" r="9"/></svg></a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Sobre</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:sobre' %}">Quem Somos</a></li>
+            <li><a href="{% url 'Camisa12:como_funciona' %}">Como Funciona</a></li>
+            <li><a href="{% url 'Camisa12:lojas' %}">Lojas Parceiras</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Categorias</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:futebol' %}">Camisas Futebol</a></li>
+            <li><a href="{% url 'Camisa12:nba' %}">Camisas NBA</a></li>
+            <li><a href="{% url 'Camisa12:nfl' %}">Camisas NFL</a></li>
+            <li><a href="{% url 'Camisa12:chuteiras' %}">Chuteiras</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4>Suporte</h4>
+          <ul>
+            <li><a href="{% url 'Camisa12:fale_conosco' %}">Fale Conosco</a></li>
+            <li><a href="{% url 'Camisa12:central_ajuda' %}">Central de Ajuda</a></li>
+            <li><a href="{% url 'Camisa12:trocas_devolucoes' %}">Trocas e Devoluções</a></li>
+            <li><a href="{% url 'Camisa12:guia_tamanhos' %}">Guia de Tamanhos</a></li>
+            <li><a href="{% url 'Camisa12:termos_uso' %}">Termos de Uso</a></li>
+          </ul>
+        </div>
+
+        <div class="newsletter">
+          <h4>Receba ofertas exclusivas</h4>
+          <p>Alertas de descontos das maiores lojas esportivas do Brasil.</p>
+          <form action="#">
+            <input type="email" placeholder="Seu melhor e-mail...">
+            <button type="submit" class="btn">OK</button>
+          </form>
+        </div>
+      </div>
+
+      <p class="rodape__copy">© 2026 CAMISA 12 · Projeto acadêmico PUC-Rio</p>
+    </div>
+  </footer>
+
+  <script src="{% static 'js/carrinho.js' %}"></script>
+</body>
+</html>
